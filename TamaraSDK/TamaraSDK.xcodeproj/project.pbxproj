@@ -1,0 +1,561 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		645368922450A03200ED9A3B /* TamaraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 645368882450A03200ED9A3B /* TamaraSDK.framework */; };
+		645368972450A03200ED9A3B /* TamaraSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645368962450A03200ED9A3B /* TamaraSDKTests.swift */; };
+		645368992450A03200ED9A3B /* TamaraSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 6453688B2450A03200ED9A3B /* TamaraSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84EB1F40254957D700DCCD1F /* TamaraLearnMorePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB1F3F254957D700DCCD1F /* TamaraLearnMorePopup.swift */; };
+		84EB1F4A254959BD00DCCD1F /* TamaraLearnMorePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F49254959BD00DCCD1F /* TamaraLearnMorePopup.xib */; };
+		84EB1F5825495BA000DCCD1F /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F5525495BA000DCCD1F /* logo@3x.png */; };
+		84EB1F5925495BA000DCCD1F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F5625495BA000DCCD1F /* logo.png */; };
+		84EB1F5A25495BA000DCCD1F /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F5725495BA000DCCD1F /* logo@2x.png */; };
+		84EB1F6325495CDA00DCCD1F /* zero-percent.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6025495CDA00DCCD1F /* zero-percent.png */; };
+		84EB1F6425495CDA00DCCD1F /* zero-percent@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6125495CDA00DCCD1F /* zero-percent@3x.png */; };
+		84EB1F6525495CDA00DCCD1F /* zero-percent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6225495CDA00DCCD1F /* zero-percent@2x.png */; };
+		84EB1F6B25495EF400DCCD1F /* debit-card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6825495EF400DCCD1F /* debit-card@2x.png */; };
+		84EB1F6C25495EF400DCCD1F /* debit-card@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6925495EF400DCCD1F /* debit-card@3x.png */; };
+		84EB1F6D25495EF400DCCD1F /* debit-card.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6A25495EF400DCCD1F /* debit-card.png */; };
+		84EB1F7325495EFF00DCCD1F /* mobile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7025495EFF00DCCD1F /* mobile@3x.png */; };
+		84EB1F7425495EFF00DCCD1F /* mobile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7125495EFF00DCCD1F /* mobile@2x.png */; };
+		84EB1F7525495EFF00DCCD1F /* mobile.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7225495EFF00DCCD1F /* mobile.png */; };
+		84EB1F7B25495F8C00DCCD1F /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7825495F8B00DCCD1F /* close.png */; };
+		84EB1F7C25495F8C00DCCD1F /* close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7925495F8B00DCCD1F /* close@3x.png */; };
+		84EB1F7D25495F8C00DCCD1F /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7A25495F8B00DCCD1F /* close@2x.png */; };
+		84FC9B332543F07A0068AF31 /* TamaraSDKCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B322543F07A0068AF31 /* TamaraSDKCheckout.swift */; };
+		84FC9B562543FB480068AF31 /* TamaraMerchantURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B552543FB480068AF31 /* TamaraMerchantURL.swift */; };
+		84FC9B8B2544150B0068AF31 /* TamaraSDKCheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B892544150B0068AF31 /* TamaraSDKCheckoutView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		645368932450A03200ED9A3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6453687F2450A03200ED9A3B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 645368872450A03200ED9A3B;
+			remoteInfo = TamaraSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		645368882450A03200ED9A3B /* TamaraSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TamaraSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6453688B2450A03200ED9A3B /* TamaraSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TamaraSDK.h; sourceTree = "<group>"; };
+		6453688C2450A03200ED9A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		645368912450A03200ED9A3B /* TamaraSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TamaraSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		645368962450A03200ED9A3B /* TamaraSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraSDKTests.swift; sourceTree = "<group>"; };
+		645368982450A03200ED9A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84EB1F3F254957D700DCCD1F /* TamaraLearnMorePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraLearnMorePopup.swift; sourceTree = "<group>"; };
+		84EB1F49254959BD00DCCD1F /* TamaraLearnMorePopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TamaraLearnMorePopup.xib; sourceTree = "<group>"; };
+		84EB1F5525495BA000DCCD1F /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
+		84EB1F5625495BA000DCCD1F /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		84EB1F5725495BA000DCCD1F /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		84EB1F6025495CDA00DCCD1F /* zero-percent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zero-percent.png"; sourceTree = "<group>"; };
+		84EB1F6125495CDA00DCCD1F /* zero-percent@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zero-percent@3x.png"; sourceTree = "<group>"; };
+		84EB1F6225495CDA00DCCD1F /* zero-percent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zero-percent@2x.png"; sourceTree = "<group>"; };
+		84EB1F6825495EF400DCCD1F /* debit-card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "debit-card@2x.png"; sourceTree = "<group>"; };
+		84EB1F6925495EF400DCCD1F /* debit-card@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "debit-card@3x.png"; sourceTree = "<group>"; };
+		84EB1F6A25495EF400DCCD1F /* debit-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "debit-card.png"; sourceTree = "<group>"; };
+		84EB1F7025495EFF00DCCD1F /* mobile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobile@3x.png"; sourceTree = "<group>"; };
+		84EB1F7125495EFF00DCCD1F /* mobile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobile@2x.png"; sourceTree = "<group>"; };
+		84EB1F7225495EFF00DCCD1F /* mobile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mobile.png; sourceTree = "<group>"; };
+		84EB1F7825495F8B00DCCD1F /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		84EB1F7925495F8B00DCCD1F /* close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@3x.png"; sourceTree = "<group>"; };
+		84EB1F7A25495F8B00DCCD1F /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		84FC9B322543F07A0068AF31 /* TamaraSDKCheckout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraSDKCheckout.swift; sourceTree = "<group>"; };
+		84FC9B552543FB480068AF31 /* TamaraMerchantURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraMerchantURL.swift; sourceTree = "<group>"; };
+		84FC9B892544150B0068AF31 /* TamaraSDKCheckoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TamaraSDKCheckoutView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		645368852450A03200ED9A3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6453688E2450A03200ED9A3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				645368922450A03200ED9A3B /* TamaraSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6453687E2450A03200ED9A3B = {
+			isa = PBXGroup;
+			children = (
+				6453688A2450A03200ED9A3B /* TamaraSDK */,
+				645368952450A03200ED9A3B /* TamaraSDKTests */,
+				645368892450A03200ED9A3B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		645368892450A03200ED9A3B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				645368882450A03200ED9A3B /* TamaraSDK.framework */,
+				645368912450A03200ED9A3B /* TamaraSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6453688A2450A03200ED9A3B /* TamaraSDK */ = {
+			isa = PBXGroup;
+			children = (
+				84EB1F5D25495BAB00DCCD1F /* Resource */,
+				84FC9B892544150B0068AF31 /* TamaraSDKCheckoutView.swift */,
+				6453688B2450A03200ED9A3B /* TamaraSDK.h */,
+				84FC9B322543F07A0068AF31 /* TamaraSDKCheckout.swift */,
+				84FC9B552543FB480068AF31 /* TamaraMerchantURL.swift */,
+				6453688C2450A03200ED9A3B /* Info.plist */,
+				84EB1F3F254957D700DCCD1F /* TamaraLearnMorePopup.swift */,
+				84EB1F49254959BD00DCCD1F /* TamaraLearnMorePopup.xib */,
+			);
+			path = TamaraSDK;
+			sourceTree = "<group>";
+		};
+		645368952450A03200ED9A3B /* TamaraSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				645368962450A03200ED9A3B /* TamaraSDKTests.swift */,
+				645368982450A03200ED9A3B /* Info.plist */,
+			);
+			path = TamaraSDKTests;
+			sourceTree = "<group>";
+		};
+		84EB1F5D25495BAB00DCCD1F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				84EB1F7825495F8B00DCCD1F /* close.png */,
+				84EB1F7A25495F8B00DCCD1F /* close@2x.png */,
+				84EB1F7925495F8B00DCCD1F /* close@3x.png */,
+				84EB1F5625495BA000DCCD1F /* logo.png */,
+				84EB1F5725495BA000DCCD1F /* logo@2x.png */,
+				84EB1F5525495BA000DCCD1F /* logo@3x.png */,
+				84EB1F6025495CDA00DCCD1F /* zero-percent.png */,
+				84EB1F6225495CDA00DCCD1F /* zero-percent@2x.png */,
+				84EB1F6125495CDA00DCCD1F /* zero-percent@3x.png */,
+				84EB1F6A25495EF400DCCD1F /* debit-card.png */,
+				84EB1F6825495EF400DCCD1F /* debit-card@2x.png */,
+				84EB1F6925495EF400DCCD1F /* debit-card@3x.png */,
+				84EB1F7225495EFF00DCCD1F /* mobile.png */,
+				84EB1F7125495EFF00DCCD1F /* mobile@2x.png */,
+				84EB1F7025495EFF00DCCD1F /* mobile@3x.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		645368832450A03200ED9A3B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				645368992450A03200ED9A3B /* TamaraSDK.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		645368872450A03200ED9A3B /* TamaraSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6453689C2450A03200ED9A3B /* Build configuration list for PBXNativeTarget "TamaraSDK" */;
+			buildPhases = (
+				645368832450A03200ED9A3B /* Headers */,
+				645368842450A03200ED9A3B /* Sources */,
+				645368852450A03200ED9A3B /* Frameworks */,
+				645368862450A03200ED9A3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TamaraSDK;
+			productName = TamaraSDK;
+			productReference = 645368882450A03200ED9A3B /* TamaraSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		645368902450A03200ED9A3B /* TamaraSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6453689F2450A03200ED9A3B /* Build configuration list for PBXNativeTarget "TamaraSDKTests" */;
+			buildPhases = (
+				6453688D2450A03200ED9A3B /* Sources */,
+				6453688E2450A03200ED9A3B /* Frameworks */,
+				6453688F2450A03200ED9A3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				645368942450A03200ED9A3B /* PBXTargetDependency */,
+			);
+			name = TamaraSDKTests;
+			productName = TamaraSDKTests;
+			productReference = 645368912450A03200ED9A3B /* TamaraSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6453687F2450A03200ED9A3B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1200;
+				ORGANIZATIONNAME = Tamara;
+				TargetAttributes = {
+					645368872450A03200ED9A3B = {
+						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
+					};
+					645368902450A03200ED9A3B = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 645368822450A03200ED9A3B /* Build configuration list for PBXProject "TamaraSDK" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6453687E2450A03200ED9A3B;
+			productRefGroup = 645368892450A03200ED9A3B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				645368872450A03200ED9A3B /* TamaraSDK */,
+				645368902450A03200ED9A3B /* TamaraSDKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		645368862450A03200ED9A3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84EB1F7C25495F8C00DCCD1F /* close@3x.png in Resources */,
+				84EB1F7525495EFF00DCCD1F /* mobile.png in Resources */,
+				84EB1F5825495BA000DCCD1F /* logo@3x.png in Resources */,
+				84EB1F5A25495BA000DCCD1F /* logo@2x.png in Resources */,
+				84EB1F6D25495EF400DCCD1F /* debit-card.png in Resources */,
+				84EB1F7B25495F8C00DCCD1F /* close.png in Resources */,
+				84EB1F4A254959BD00DCCD1F /* TamaraLearnMorePopup.xib in Resources */,
+				84EB1F6425495CDA00DCCD1F /* zero-percent@3x.png in Resources */,
+				84EB1F6525495CDA00DCCD1F /* zero-percent@2x.png in Resources */,
+				84EB1F6B25495EF400DCCD1F /* debit-card@2x.png in Resources */,
+				84EB1F6C25495EF400DCCD1F /* debit-card@3x.png in Resources */,
+				84EB1F5925495BA000DCCD1F /* logo.png in Resources */,
+				84EB1F7325495EFF00DCCD1F /* mobile@3x.png in Resources */,
+				84EB1F7425495EFF00DCCD1F /* mobile@2x.png in Resources */,
+				84EB1F6325495CDA00DCCD1F /* zero-percent.png in Resources */,
+				84EB1F7D25495F8C00DCCD1F /* close@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6453688F2450A03200ED9A3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		645368842450A03200ED9A3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84EB1F40254957D700DCCD1F /* TamaraLearnMorePopup.swift in Sources */,
+				84FC9B8B2544150B0068AF31 /* TamaraSDKCheckoutView.swift in Sources */,
+				84FC9B332543F07A0068AF31 /* TamaraSDKCheckout.swift in Sources */,
+				84FC9B562543FB480068AF31 /* TamaraMerchantURL.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6453688D2450A03200ED9A3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				645368972450A03200ED9A3B /* TamaraSDKTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		645368942450A03200ED9A3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 645368872450A03200ED9A3B /* TamaraSDK */;
+			targetProxy = 645368932450A03200ED9A3B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6453689A2450A03200ED9A3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6453689B2450A03200ED9A3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6453689D2450A03200ED9A3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UME38WJ3HH;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TamaraSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.tamara.TamaraSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6453689E2450A03200ED9A3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UME38WJ3HH;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TamaraSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.tamara.TamaraSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		645368A02450A03200ED9A3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UME38WJ3HH;
+				INFOPLIST_FILE = TamaraSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.tamara.TamaraSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		645368A12450A03200ED9A3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UME38WJ3HH;
+				INFOPLIST_FILE = TamaraSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.tamara.TamaraSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		645368822450A03200ED9A3B /* Build configuration list for PBXProject "TamaraSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6453689A2450A03200ED9A3B /* Debug */,
+				6453689B2450A03200ED9A3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6453689C2450A03200ED9A3B /* Build configuration list for PBXNativeTarget "TamaraSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6453689D2450A03200ED9A3B /* Debug */,
+				6453689E2450A03200ED9A3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6453689F2450A03200ED9A3B /* Build configuration list for PBXNativeTarget "TamaraSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				645368A02450A03200ED9A3B /* Debug */,
+				645368A12450A03200ED9A3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6453687F2450A03200ED9A3B /* Project object */;
+}
