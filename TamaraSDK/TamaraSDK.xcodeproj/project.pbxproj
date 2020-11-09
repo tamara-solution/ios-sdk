@@ -10,20 +10,9 @@
 		645368922450A03200ED9A3B /* TamaraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 645368882450A03200ED9A3B /* TamaraSDK.framework */; };
 		645368972450A03200ED9A3B /* TamaraSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645368962450A03200ED9A3B /* TamaraSDKTests.swift */; };
 		645368992450A03200ED9A3B /* TamaraSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 6453688B2450A03200ED9A3B /* TamaraSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64B9E95B255527030046E342 /* TamaraLearnMorePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B9E95D255527030046E342 /* TamaraLearnMorePopup.xib */; };
+		64B9E96B25552D090046E342 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64B9E96A25552D090046E342 /* Assets.xcassets */; };
 		84EB1F40254957D700DCCD1F /* TamaraLearnMorePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB1F3F254957D700DCCD1F /* TamaraLearnMorePopup.swift */; };
-		84EB1F4A254959BD00DCCD1F /* TamaraLearnMorePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F49254959BD00DCCD1F /* TamaraLearnMorePopup.xib */; };
-		84EB1F5825495BA000DCCD1F /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F5525495BA000DCCD1F /* logo@3x.png */; };
-		84EB1F5925495BA000DCCD1F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F5625495BA000DCCD1F /* logo.png */; };
-		84EB1F5A25495BA000DCCD1F /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F5725495BA000DCCD1F /* logo@2x.png */; };
-		84EB1F6325495CDA00DCCD1F /* zero-percent.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6025495CDA00DCCD1F /* zero-percent.png */; };
-		84EB1F6425495CDA00DCCD1F /* zero-percent@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6125495CDA00DCCD1F /* zero-percent@3x.png */; };
-		84EB1F6525495CDA00DCCD1F /* zero-percent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6225495CDA00DCCD1F /* zero-percent@2x.png */; };
-		84EB1F6B25495EF400DCCD1F /* debit-card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6825495EF400DCCD1F /* debit-card@2x.png */; };
-		84EB1F6C25495EF400DCCD1F /* debit-card@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6925495EF400DCCD1F /* debit-card@3x.png */; };
-		84EB1F6D25495EF400DCCD1F /* debit-card.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F6A25495EF400DCCD1F /* debit-card.png */; };
-		84EB1F7325495EFF00DCCD1F /* mobile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7025495EFF00DCCD1F /* mobile@3x.png */; };
-		84EB1F7425495EFF00DCCD1F /* mobile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7125495EFF00DCCD1F /* mobile@2x.png */; };
-		84EB1F7525495EFF00DCCD1F /* mobile.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7225495EFF00DCCD1F /* mobile.png */; };
 		84EB1F7B25495F8C00DCCD1F /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7825495F8B00DCCD1F /* close.png */; };
 		84EB1F7C25495F8C00DCCD1F /* close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7925495F8B00DCCD1F /* close@3x.png */; };
 		84EB1F7D25495F8C00DCCD1F /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7A25495F8B00DCCD1F /* close@2x.png */; };
@@ -49,20 +38,10 @@
 		645368912450A03200ED9A3B /* TamaraSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TamaraSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		645368962450A03200ED9A3B /* TamaraSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraSDKTests.swift; sourceTree = "<group>"; };
 		645368982450A03200ED9A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64B9E96A25552D090046E342 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		64B9E983255660D20046E342 /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/TamaraLearnMorePopup.xib; sourceTree = "<group>"; };
+		64B9E984255660DD0046E342 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TamaraLearnMorePopup.xib; sourceTree = "<group>"; };
 		84EB1F3F254957D700DCCD1F /* TamaraLearnMorePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraLearnMorePopup.swift; sourceTree = "<group>"; };
-		84EB1F49254959BD00DCCD1F /* TamaraLearnMorePopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TamaraLearnMorePopup.xib; sourceTree = "<group>"; };
-		84EB1F5525495BA000DCCD1F /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
-		84EB1F5625495BA000DCCD1F /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		84EB1F5725495BA000DCCD1F /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
-		84EB1F6025495CDA00DCCD1F /* zero-percent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zero-percent.png"; sourceTree = "<group>"; };
-		84EB1F6125495CDA00DCCD1F /* zero-percent@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zero-percent@3x.png"; sourceTree = "<group>"; };
-		84EB1F6225495CDA00DCCD1F /* zero-percent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zero-percent@2x.png"; sourceTree = "<group>"; };
-		84EB1F6825495EF400DCCD1F /* debit-card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "debit-card@2x.png"; sourceTree = "<group>"; };
-		84EB1F6925495EF400DCCD1F /* debit-card@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "debit-card@3x.png"; sourceTree = "<group>"; };
-		84EB1F6A25495EF400DCCD1F /* debit-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "debit-card.png"; sourceTree = "<group>"; };
-		84EB1F7025495EFF00DCCD1F /* mobile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobile@3x.png"; sourceTree = "<group>"; };
-		84EB1F7125495EFF00DCCD1F /* mobile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobile@2x.png"; sourceTree = "<group>"; };
-		84EB1F7225495EFF00DCCD1F /* mobile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mobile.png; sourceTree = "<group>"; };
 		84EB1F7825495F8B00DCCD1F /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		84EB1F7925495F8B00DCCD1F /* close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@3x.png"; sourceTree = "<group>"; };
 		84EB1F7A25495F8B00DCCD1F /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
@@ -111,6 +90,7 @@
 		6453688A2450A03200ED9A3B /* TamaraSDK */ = {
 			isa = PBXGroup;
 			children = (
+				64B9E96A25552D090046E342 /* Assets.xcassets */,
 				84EB1F5D25495BAB00DCCD1F /* Resource */,
 				84FC9B892544150B0068AF31 /* TamaraSDKCheckoutView.swift */,
 				6453688B2450A03200ED9A3B /* TamaraSDK.h */,
@@ -118,7 +98,7 @@
 				84FC9B552543FB480068AF31 /* TamaraMerchantURL.swift */,
 				6453688C2450A03200ED9A3B /* Info.plist */,
 				84EB1F3F254957D700DCCD1F /* TamaraLearnMorePopup.swift */,
-				84EB1F49254959BD00DCCD1F /* TamaraLearnMorePopup.xib */,
+				64B9E95D255527030046E342 /* TamaraLearnMorePopup.xib */,
 			);
 			path = TamaraSDK;
 			sourceTree = "<group>";
@@ -138,18 +118,6 @@
 				84EB1F7825495F8B00DCCD1F /* close.png */,
 				84EB1F7A25495F8B00DCCD1F /* close@2x.png */,
 				84EB1F7925495F8B00DCCD1F /* close@3x.png */,
-				84EB1F5625495BA000DCCD1F /* logo.png */,
-				84EB1F5725495BA000DCCD1F /* logo@2x.png */,
-				84EB1F5525495BA000DCCD1F /* logo@3x.png */,
-				84EB1F6025495CDA00DCCD1F /* zero-percent.png */,
-				84EB1F6225495CDA00DCCD1F /* zero-percent@2x.png */,
-				84EB1F6125495CDA00DCCD1F /* zero-percent@3x.png */,
-				84EB1F6A25495EF400DCCD1F /* debit-card.png */,
-				84EB1F6825495EF400DCCD1F /* debit-card@2x.png */,
-				84EB1F6925495EF400DCCD1F /* debit-card@3x.png */,
-				84EB1F7225495EFF00DCCD1F /* mobile.png */,
-				84EB1F7125495EFF00DCCD1F /* mobile@2x.png */,
-				84EB1F7025495EFF00DCCD1F /* mobile@3x.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -230,6 +198,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 6453687E2450A03200ED9A3B;
 			productRefGroup = 645368892450A03200ED9A3B /* Products */;
@@ -248,20 +217,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EB1F7C25495F8C00DCCD1F /* close@3x.png in Resources */,
-				84EB1F7525495EFF00DCCD1F /* mobile.png in Resources */,
-				84EB1F5825495BA000DCCD1F /* logo@3x.png in Resources */,
-				84EB1F5A25495BA000DCCD1F /* logo@2x.png in Resources */,
-				84EB1F6D25495EF400DCCD1F /* debit-card.png in Resources */,
 				84EB1F7B25495F8C00DCCD1F /* close.png in Resources */,
-				84EB1F4A254959BD00DCCD1F /* TamaraLearnMorePopup.xib in Resources */,
-				84EB1F6425495CDA00DCCD1F /* zero-percent@3x.png in Resources */,
-				84EB1F6525495CDA00DCCD1F /* zero-percent@2x.png in Resources */,
-				84EB1F6B25495EF400DCCD1F /* debit-card@2x.png in Resources */,
-				84EB1F6C25495EF400DCCD1F /* debit-card@3x.png in Resources */,
-				84EB1F5925495BA000DCCD1F /* logo.png in Resources */,
-				84EB1F7325495EFF00DCCD1F /* mobile@3x.png in Resources */,
-				84EB1F7425495EFF00DCCD1F /* mobile@2x.png in Resources */,
-				84EB1F6325495CDA00DCCD1F /* zero-percent.png in Resources */,
+				64B9E96B25552D090046E342 /* Assets.xcassets in Resources */,
+				64B9E95B255527030046E342 /* TamaraLearnMorePopup.xib in Resources */,
 				84EB1F7D25495F8C00DCCD1F /* close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,11 +263,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		64B9E95D255527030046E342 /* TamaraLearnMorePopup.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64B9E983255660D20046E342 /* ar */,
+				64B9E984255660DD0046E342 /* en */,
+			);
+			name = TamaraLearnMorePopup.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		6453689A2450A03200ED9A3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -374,6 +345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
