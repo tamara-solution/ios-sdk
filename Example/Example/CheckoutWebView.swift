@@ -16,7 +16,7 @@ struct CheckoutWebView: View {
     @ObservedObject var viewModel = TamaraSDKCheckoutViewModel()
     
     var body: some View {
-        TamaraSDKCheckoutView(viewModel)
+        TamaraSDKCheckoutView(appState.viewModel)
             .onAppear {
                 self.viewModel.onSuccess = {
                     self.appState.isLoading = false
@@ -30,8 +30,9 @@ struct CheckoutWebView: View {
                     self.appState.currentPage = .Success
                 }
                 
-                let request = URLRequest(url: URL(string: self.viewModel.url)!)
-                self.viewModel.webView.load(request)
+                guard let url = URL(string: appState.viewModel.url) else {return}
+                self.viewModel.webView.load(URLRequest(url: url) )
+//                UIApplication.shared.openURL(url)
         }
         .navigationBarTitle("Checkout", displayMode: .inline)
         .navigationBarItems(trailing: HStack {
