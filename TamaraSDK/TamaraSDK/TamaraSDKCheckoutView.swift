@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Combine
+//import Combine
 import WebKit
 
 @available(iOS 13.0.0, *)
@@ -23,7 +23,13 @@ public class TamaraSDKCheckoutViewModel: ObservableObject {
     public init(url: String? = "", merchantURL: TamaraMerchantURL = TamaraMerchantURL(success: "", failure: "", cancel: "", notification: ""),webView: WKWebView? = WKWebView()) {
         self.url = url ?? ""
         self.merchantURL = merchantURL
-        self.webView = webView ?? WKWebView()
+//        self.webView = webView ?? WKWebView()
+//        if self.webView == nil {
+            self.webView = WKWebView()
+            if let url = URL(string: self.url) {
+                self.webView.load(URLRequest(url: url))
+            }
+//        }
     }
 }
 

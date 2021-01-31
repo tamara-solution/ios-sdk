@@ -37,7 +37,7 @@ final class AppState: ObservableObject {
         region: "As Sulimaniyah",
         city: "Riyadh",
         countryCode: countryCode,
-        phoneNumber: "502223333"
+        phoneNumber: generatePhoneNumber()
     )
     @Published var billingAddress = CustomerAddress(
         firstName: "Mona",
@@ -47,7 +47,7 @@ final class AppState: ObservableObject {
         region: "As Sulimaniyah",
         city: "Riyadh",
         countryCode: countryCode,
-        phoneNumber: "502223333"
+        phoneNumber: generatePhoneNumber()
     )
     
     @Published var viewModel: TamaraSDKCheckoutViewModel!
