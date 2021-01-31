@@ -30,9 +30,11 @@ struct CheckoutWebView: View {
                     self.appState.currentPage = .Success
                 }
                 
-                guard let url = URL(string: appState.viewModel.url) else {return}
+                guard let url = URL(string: appState.viewModel.url) else {
+                    print("nil")
+                    return
+                }
                 self.viewModel.webView.load(URLRequest(url: url) )
-//                UIApplication.shared.openURL(url)
         }
         .navigationBarTitle("Checkout", displayMode: .inline)
         .navigationBarItems(trailing: HStack {
