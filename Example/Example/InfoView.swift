@@ -130,7 +130,7 @@ struct InfoView : View {
         let consumer = TamaraConsumer(
             firstName: "Mona",
             lastName: "Lisa",
-            phoneNumber: "502223333",
+            phoneNumber: generatePhoneNumber(),
             email: "user@example.com",
             nationalID: "123456",
             dateOfBirth: "2020-04-18",
