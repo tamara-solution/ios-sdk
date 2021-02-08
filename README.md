@@ -13,7 +13,7 @@ The SDK provides these functionalities:
 
 This is the general workflow for using tamara on your application:
 
-<img src="docs/images/checkout-flow.jpeg" alt="Checkout Flow" />
+![Checkout flow](checkout-flow.jpeg "Checkout flow")
 
 So, assuming you already called our checkout API, and got `checkout_url`, let's do some quick coding to get it done.
 
