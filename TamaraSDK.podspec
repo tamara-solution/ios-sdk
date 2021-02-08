@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "TamaraSDK"
-  spec.version      = "0.0.7"
+  spec.version      = "0.0.9"
   spec.summary      = "SDK for tamara.co"
 
   # This description is used to generate tags and improve search results.
