@@ -130,7 +130,8 @@ struct InfoView : View {
         let consumer = TamaraConsumer(
             firstName: "Mona",
             lastName: "Lisa",
-            phoneNumber: generatePhoneNumber(),
+//            phoneNumber: generatePhoneNumber(),
+            phoneNumber: "54116698",
             email: "user@example.com",
             nationalID: "123456",
             dateOfBirth: "2020-04-18",
@@ -157,18 +158,23 @@ struct InfoView : View {
             riskAssessment: nil
         )
         
-        tamaraCheckout.processCheckout(body: requestBody, checkoutComplete: { (checkoutUrl) in
+        tamaraCheckout.processCheckout(body: requestBody, checkoutComplete: { (checkoutSuccess) in
                 
             ///call TAMARA SDK show webview
             DispatchQueue.main.async {
                 self.appState.isLoading = false
-                guard let url = checkoutUrl else {return}
-                self.appState.viewModel = TamaraSDKCheckoutViewModel(url: url, merchantURL: merchantUrl)
+                guard let item = checkoutSuccess else {return}
+                self.appState.viewModel = TamaraSDKCheckoutViewModel(url: item.checkoutUrl, merchantURL: merchantUrl)
                 self.appState.currentPage = AppPages.Checkout
             }
 
-        }, checkoutFailed: { (error) in
-            print(error)
+        }, checkoutFailed: { (checkoutFailed) in
+            //handle failed case
+            
+            print(checkoutFailed?.message ?? "")
+            
+            
+            ///
             DispatchQueue.main.async {
                 self.appState.isLoading = false
                 self.appState.orderSuccessed = false

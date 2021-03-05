@@ -8,12 +8,17 @@
 
 import Foundation
 
-struct TamaraCheckoutResponse: Codable {
+public struct TamaraCheckoutSuccess: Codable {
     var orderId: String?
-    var checkoutUrl: String
+    var checkoutUrl: String = ""
     
     enum CodingKeys: String, CodingKey {
         case orderId = "order_id"
         case checkoutUrl = "checkout_url"
     }
+    
+    init() {
+        
+    }
 }
+
