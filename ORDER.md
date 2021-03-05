@@ -84,7 +84,7 @@ TamaraAmount (amount: String, currency: String)
 
 Processes to Tamara payment page using:
 ```swift
-func processCheckout(body: TamaraCheckoutRequestBody, checkoutComplete: @escaping (_ checkoutUrl: String) -> Void, checkoutFailed: @escaping (_ error: Error) -> Void)
+processCheckout(body: TamaraCheckoutRequestBody, checkoutComplete: @escaping (_ checkoutUrl: TamaraCheckoutSuccess?) -> Void, checkoutFailed: @escaping (_ error: TamaraCheckoutError?) -> Void)
 ```
 
  
@@ -113,13 +113,15 @@ let requestBody = TamaraCheckoutRequestBody(
 
 Processing checkout and handle data returned from the SDK
 ```swift
-tamaraCheckout.processCheckout(body: requestBody, checkoutComplete: { (checkoutUrl) in
-          //TODO: Handler successful case
-
-        }, checkoutFailed: { (error) in
-          //TODO: Handler failed case
-
-            print(error)
+tamaraCheckout.processCheckout(body: requestBody, checkoutComplete: { (checkoutSuccess) in
+            ///success checkout  TAMARA SDK show webview
+            //Do something there
+            
+        }, checkoutFailed: { (checkoutFailed) in
+            //Handle failed case
+            print(checkoutFailed?.message ?? "")
+            
+            ///Do something when have error.
         })
 ```
 
