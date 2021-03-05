@@ -170,9 +170,7 @@ struct InfoView : View {
 
         }, checkoutFailed: { (checkoutFailed) in
             //handle failed case
-            
             print(checkoutFailed?.message ?? "")
-            
             
             ///
             DispatchQueue.main.async {
