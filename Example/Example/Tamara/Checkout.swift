@@ -79,7 +79,6 @@ public class TamaraCheckout {
     }
     
     private func doCheckout(token: String, body: TamaraCheckoutRequestBody, checkoutComplete: @escaping (_ objectSucess: TamaraCheckoutSuccess) -> Void, checkoutFailed: @escaping (_ error: TamaraCheckoutError) -> Void) {
-        //        do {
         if let data = try? self.encoder.encode(body) {
             print(String(decoding: data, as: UTF8.self))
             guard let url = URL(string: "\(baseUrl)/checkout") else {
@@ -94,11 +93,10 @@ public class TamaraCheckout {
                 guard error == nil else { print(error!.localizedDescription); return }
                 
                 if let httpResponse = response as? HTTPURLResponse {
-                    print(httpResponse.statusCode)
-                    //handle case response error object
+                    // Success with checkout_url
                     if httpResponse.statusCode == 200 {
                         try? checkoutComplete(TamaraCheckoutSuccess.decode(from: data ?? Data()))
-                    } else {
+                    } else { // Failed due to invalid payload
                         try? checkoutFailed(TamaraCheckoutError.decode(from: data ?? Data()))
                     }
                 }

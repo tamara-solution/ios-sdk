@@ -36,7 +36,7 @@
 		84FC9B4A2543F77F0068AF31 /* AuthenticateRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B452543F77F0068AF31 /* AuthenticateRequestBody.swift */; };
 		84FC9B4B2543F77F0068AF31 /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B462543F77F0068AF31 /* Checkout.swift */; };
 		84FC9B4C2543F77F0068AF31 /* CheckoutRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B472543F77F0068AF31 /* CheckoutRequestBody.swift */; };
-		84FC9B4D2543F77F0068AF31 /* CheckoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B482543F77F0068AF31 /* CheckoutResponse.swift */; };
+		84FC9B4D2543F77F0068AF31 /* CheckoutSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B482543F77F0068AF31 /* CheckoutSuccess.swift */; };
 		84FC9BA5254425850068AF31 /* CheckoutWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9BA4254425850068AF31 /* CheckoutWebView.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +106,7 @@
 		84FC9B452543F77F0068AF31 /* AuthenticateRequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateRequestBody.swift; sourceTree = "<group>"; };
 		84FC9B462543F77F0068AF31 /* Checkout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
 		84FC9B472543F77F0068AF31 /* CheckoutRequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRequestBody.swift; sourceTree = "<group>"; };
-		84FC9B482543F77F0068AF31 /* CheckoutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutResponse.swift; sourceTree = "<group>"; };
+		84FC9B482543F77F0068AF31 /* CheckoutSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutSuccess.swift; sourceTree = "<group>"; };
 		84FC9BA4254425850068AF31 /* CheckoutWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutWebView.swift; sourceTree = "<group>"; };
 		CEFB38360522BE0F4A47CF92 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B2856E19CB080EFB621C40 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 				84FC9B442543F77F0068AF31 /* AuthenticateResponse.swift */,
 				84FC9B462543F77F0068AF31 /* Checkout.swift */,
 				84FC9B472543F77F0068AF31 /* CheckoutRequestBody.swift */,
-				84FC9B482543F77F0068AF31 /* CheckoutResponse.swift */,
+				84FC9B482543F77F0068AF31 /* CheckoutSuccess.swift */,
 				843C22E225F22FB800FFA811 /* CheckoutError.swift */,
 			);
 			path = Tamara;
@@ -470,7 +470,7 @@
 				64F9A8582452AC7F003302AE /* CartItem.swift in Sources */,
 				6467E7DC246260FD00099EC1 /* CustomerAddress.swift in Sources */,
 				843C22E325F22FB800FFA811 /* CheckoutError.swift in Sources */,
-				84FC9B4D2543F77F0068AF31 /* CheckoutResponse.swift in Sources */,
+				84FC9B4D2543F77F0068AF31 /* CheckoutSuccess.swift in Sources */,
 				84FC9B4B2543F77F0068AF31 /* Checkout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

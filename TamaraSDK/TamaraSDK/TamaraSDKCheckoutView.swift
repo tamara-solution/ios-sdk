@@ -20,16 +20,17 @@ public class TamaraSDKCheckoutViewModel: ObservableObject {
     @Published public var onSuccess: () -> Void = {}
     @Published public var onFailure: () -> Void = {}
     
-    public init(url: String? = "", merchantURL: TamaraMerchantURL = TamaraMerchantURL(success: "", failure: "", cancel: "", notification: ""),webView: WKWebView? = WKWebView()) {
+    public init(url: String? = "", merchantURL: TamaraMerchantURL = TamaraMerchantURL(success: "", failure: "", cancel: "", notification: ""), webView: WKWebView? = WKWebView()) {
         self.url = url ?? ""
         self.merchantURL = merchantURL
-//        self.webView = webView ?? WKWebView()
-//        if self.webView == nil {
+        if webView == nil {
             self.webView = WKWebView()
             if let url = URL(string: self.url) {
                 self.webView.load(URLRequest(url: url))
             }
-//        }
+        } else {
+            self.webView = webView!
+        }
     }
 }
 

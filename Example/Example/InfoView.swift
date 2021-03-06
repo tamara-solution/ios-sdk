@@ -53,7 +53,7 @@ struct InfoView : View {
             LabelTextView(label: "Address Line 2", placeHolder: "Block A", text: self.$appState.shippingAddress.line2)
             LabelTextView(label: "Region", placeHolder: "As Sulimaniyah", text: self.$appState.shippingAddress.region)
             LabelTextView(label: "City", placeHolder: "Riyadh", text: self.$appState.shippingAddress.city)
-            LabelTextView(label: "Phone Number", placeHolder: "502223333", text: self.$appState.shippingAddress.phoneNumber)
+            LabelTextView(label: "Phone Number", placeHolder: "54116698", text: self.$appState.shippingAddress.phoneNumber)
             RoundedButton(label: "Checkout", buttonAction: self.checkout)
                 .padding(.top, 20)
         }
@@ -131,7 +131,6 @@ struct InfoView : View {
             firstName: "Mona",
             lastName: "Lisa",
             phoneNumber: generatePhoneNumber(),
-//            phoneNumber: "54116698",
             email: "user@example.com",
             nationalID: "123456",
             dateOfBirth: "2020-04-18",
@@ -159,8 +158,7 @@ struct InfoView : View {
         )
         
         tamaraCheckout.processCheckout(body: requestBody, checkoutComplete: { (checkoutSuccess) in
-                
-            ///call TAMARA SDK show webview
+            // Handle success case
             DispatchQueue.main.async {
                 self.appState.isLoading = false
                 guard let item = checkoutSuccess else {return}
@@ -169,10 +167,9 @@ struct InfoView : View {
             }
 
         }, checkoutFailed: { (checkoutFailed) in
-            //handle failed case
+            // Handle failed case
             print(checkoutFailed?.message ?? "")
             
-            ///
             DispatchQueue.main.async {
                 self.appState.isLoading = false
                 self.appState.orderSuccessed = false
