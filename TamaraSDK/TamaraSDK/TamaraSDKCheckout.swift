@@ -76,11 +76,11 @@ extension TamaraSDKCheckout: WKNavigationDelegate, WKUIDelegate {
             return
         }
         if url.absoluteString.contains("tamara://") {
-            if (webView.url!.absoluteString.contains(self.merchantURL.success)) {
+            if (url.absoluteString.contains(self.merchantURL.success)) {
                 self.delegate.onSuccessfull()
-            } else if (webView.url!.absoluteString.contains(self.merchantURL.failure)) {
+            } else if (url.absoluteString.contains(self.merchantURL.failure)) {
                 self.delegate.onFailured()
-            } else if (webView.url!.absoluteString.contains(self.merchantURL.cancel)) {
+            } else if (url.absoluteString.contains(self.merchantURL.cancel)) {
                 self.delegate.onCancel()
             } else  {
                 self.delegate.onNotification()

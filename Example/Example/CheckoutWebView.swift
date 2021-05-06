@@ -17,18 +17,26 @@ struct CheckoutWebView: View {
     
     var body: some View {
         HStack {
-            SDKViewController(url: appState.viewModel.url, merchantUrl: appState.viewModel.merchantURL)
-
+            SDKViewController(url: appState.viewModel.url,
+                              merchantUrl: appState.viewModel.merchantURL,
+                              delegate: SDKViewController.Delegate (
+                                success: {
+                                    //Handle Success
+                                    appState.orderSuccessed = true
+                                    appState.currentPage = .Success
+                                }, failure: {
+                                    //Handle Failed
+                                    appState.orderSuccessed = false
+                                    appState.currentPage = .Success
+                                }, cancel: {
+                                    //Handle Cancel
+                                    appState.currentPage = .Info
+                                }, notification: {
+                                    //Handle Notification
+                                    appState.currentPage = .Info
+                                })
+            )
         }
         .navigationBarTitle("Checkout", displayMode: .inline)
-
-    }
-    
-}
-
-@available(iOS 13.0.0, *)
-struct CheckoutWebView_Previews: PreviewProvider {
-    static var previews: some View {
-        CheckoutWebView()
     }
 }

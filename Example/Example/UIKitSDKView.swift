@@ -13,22 +13,19 @@ import TamaraSDK
 struct SDKViewController: UIViewControllerRepresentable {
     typealias UIViewControllerType = TamaraSDKCheckout
     
-    private var url:String = ""
-    private var merchantURL: TamaraMerchantURL = TamaraMerchantURL(success: "", failure: "", cancel: "", notification: "")
+    private let url: String
+    private let merchantURL: TamaraMerchantURL
+    private let delegate: TamaraCheckoutDelegate
     
-    public var onSuccess: (() -> Void)?
-    public var onFailed: (() -> Void)?
-    public var onCancel: (() -> Void)?
-    public var onNotification: (() -> Void)?
-    
-    init(url:String, merchantUrl: TamaraMerchantURL) {
+    init(url:String, merchantUrl: TamaraMerchantURL, delegate: TamaraCheckoutDelegate) {
         self.url = url
         self.merchantURL = merchantUrl
+        self.delegate = delegate
     }
     
     func makeUIViewController(context: Context) -> TamaraSDKCheckout {
         let vc = TamaraSDKCheckout(url: self.url, merchantURL: merchantURL, webView: nil)
-        vc.delegate = context.coordinator
+        vc.delegate = delegate
         return vc
     }
     
@@ -36,40 +33,56 @@ struct SDKViewController: UIViewControllerRepresentable {
     }
     
     
-    public class Coordinator: NSObject, TamaraCheckoutDelegate {
+    public class Coordinator: NSObject {
+    }
+    
+    public func makeCoordinator() -> SDKViewController.Coordinator {
+        Coordinator()
+    }
+}
+
+extension SDKViewController {
+
+    class Delegate: NSObject, TamaraCheckoutDelegate {
+
+        private let sdkSuccess:() -> Void
+        private let sdkFailed:() -> Void
+        private let sdkCancel:() -> Void
+        private let sdkNotification:() -> Void
         
-        var parent:SDKViewController
-        
-        init(parent: SDKViewController){
-            self.parent = parent
+        init(success didSuccess: @escaping(()->Void),
+             failure didFailed: @escaping (()->Void),
+             cancel didCancel: @escaping(()->Void),
+            notification didNotification: @escaping (()->Void)){
+            self.sdkSuccess = didSuccess
+            self.sdkFailed = didFailed
+            self.sdkCancel = didCancel
+            self.sdkNotification = didNotification
         }
         
         public func onSuccessfull() {
             //Handle success
-            parent.onSuccess?()
+            self.sdkSuccess()
         }
         
         public func onFailured() {
             //Handle failured
-            parent.onFailed?()
+            self.sdkFailed()
 
         }
         
         public func onCancel() {
             //Handle cancel
-            parent.onCancel?()
+            self.sdkCancel()
 
         }
         
         public func onNotification() {
             //Handle notification
-            parent.onNotification?()
+            self.sdkNotification()
 
         }
     }
-    
-    public func makeCoordinator() -> SDKViewController.Coordinator {
-        Coordinator(parent: self)
-    }
-
 }
+
+
