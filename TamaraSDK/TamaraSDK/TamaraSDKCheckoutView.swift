@@ -80,8 +80,13 @@ public struct TamaraSDKCheckoutView: View, UIViewRepresentable {
                 return
             }
             if url.absoluteString.contains("tamara://") {
+                if url.absoluteString.contains("cancel") {
+                    self.viewModel.finishLoadingHandler()
+                }
                 let application = UIApplication.shared
                 application.open(url, options: [ : ], completionHandler: nil)
+                
+                
             } else {
                 //cancel or profile case
             }
