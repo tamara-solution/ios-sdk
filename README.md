@@ -25,7 +25,7 @@ let merchantUrl = TamaraMerchantURL(
     success: "tamara://checkout/success",
     failure: "tamara://checkout/failure",
     cancel: "tamara://checkout/cancel",
-    notification: "https://example.com/checkout/notification"
+    notification: "tamara://checkout/notification"
 )
 ```
 
@@ -39,20 +39,68 @@ Note: In case you want to create order from iOS client, not going through your b
 
 
 ## 2. Create webview and handle callback (success / failure)
+### 1. In SwiftUI 
 
 ```swift
-TamaraSDKCheckoutView(viewModel)
-    .onAppear {
-        self.viewModel.onSuccess = {
-            ///Success handler
-        }
+SDKViewController(url: appState.viewModel.url,
+                  merchantUrl: appState.viewModel.merchantURL,
+                  delegate: SDKViewController.Delegate (
+                    success: {
+                        //Handle Success
+                        appState.orderSuccessed = true
+                        appState.currentPage = .Success
+                    }, failure: {
+                        //Handle Failed
+                        appState.orderSuccessed = false
+                        appState.currentPage = .Success
+                    }, cancel: {
+                        //Handle Cancel
+                        appState.currentPage = .Info
+                    }, notification: {
+                        //Handle Notification
+                    })
+)
+```
+### 2. In UIKit 
+```swift
+private var tamaraSDK: TamaraSDKCheckout!
+```
 
-        self.viewModel.onFailure = {
-            ///Failure handler
-        }
+```swift
 
-        var request = URLRequest(url: URL(string: appState.viewModel.url)!)
-        self.viewModel.webView.load(request)
+self.tamaraSDK = TamaraSDKCheckout(url: item.checkoutUrl, merchantURL: merchantUrl, webView: nil)
+self.tamaraSDK.delegate = self
+self.present(self.tamaraSDK, animated: true, completion: nil)
+
+```
+Delegate Handle
+
+```swift
+//Delegate handle action
+extension UIKitSDKViewController: TamaraCheckoutDelegate {
+    func onSuccessfull() {
+    sdkView.dismiss(animated: true) {
+            //success handel
+        }
+    }
+    
+    func onFailured() {
+        tamaraSDK.dismiss(animated: true) {
+            //error handel
+        }
+    }
+    
+    func onCancel() {
+        tamaraSDK.dismiss(animated: true) {
+            //cancel handel
+        }
+    }
+    
+    func onNotification() {
+        tamaraSDK.dismiss(animated: true) {
+            //notification handel
+        }
+    }
 }
 ```
 

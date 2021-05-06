@@ -185,12 +185,12 @@
 				649113E0245ED5F20052BF0F /* SuccessView.swift */,
 				84FC9BA4254425850068AF31 /* CheckoutWebView.swift */,
 				84EB1FA0254969F700DCCD1F /* TamaraPopupView.swift */,
+				8453DE542643E39A0013D4FB /* UIKitSDKView.swift */,
+				8453DE66264416120013D4FB /* TamaraCheckoutViewModel.swift */,
 				645368F02450A7D900ED9A3B /* Assets.xcassets */,
 				645368F52450A7D900ED9A3B /* LaunchScreen.storyboard */,
 				645368F82450A7D900ED9A3B /* Info.plist */,
 				645368F22450A7D900ED9A3B /* Preview Content */,
-				8453DE542643E39A0013D4FB /* UIKitSDKView.swift */,
-				8453DE66264416120013D4FB /* TamaraCheckoutViewModel.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
