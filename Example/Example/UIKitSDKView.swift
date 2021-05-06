@@ -31,7 +31,10 @@ struct SDKViewController: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: TamaraSDKCheckout, context: Context) {
     }
-    
+}
+
+//MARK: - COORDINATOR
+extension SDKViewController {
     
     public class Coordinator: NSObject {
     }
@@ -39,8 +42,10 @@ struct SDKViewController: UIViewControllerRepresentable {
     public func makeCoordinator() -> SDKViewController.Coordinator {
         Coordinator()
     }
+
 }
 
+//MARK: - DELEGATE
 extension SDKViewController {
 
     class Delegate: NSObject, TamaraCheckoutDelegate {
@@ -68,19 +73,16 @@ extension SDKViewController {
         public func onFailured() {
             //Handle failured
             self.sdkFailed()
-
         }
         
         public func onCancel() {
             //Handle cancel
             self.sdkCancel()
-
         }
         
         public func onNotification() {
             //Handle notification
             self.sdkNotification()
-
         }
     }
 }
