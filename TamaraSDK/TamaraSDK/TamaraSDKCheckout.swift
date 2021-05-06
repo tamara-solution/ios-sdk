@@ -64,7 +64,6 @@ public class TamaraSDKCheckout: UIViewController {
         self.webView.navigationDelegate = self
         view = webView
     }
-    
 }
 
 extension TamaraSDKCheckout: WKNavigationDelegate, WKUIDelegate {
