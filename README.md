@@ -80,25 +80,25 @@ Delegate Handle
 extension UIKitSDKViewController: TamaraCheckoutDelegate {
     func onSuccessfull() {
     sdkView.dismiss(animated: true) {
-            //success handel
+            //success handle
         }
     }
     
     func onFailured() {
         tamaraSDK.dismiss(animated: true) {
-            //error handel
+            //error handle
         }
     }
     
     func onCancel() {
         tamaraSDK.dismiss(animated: true) {
-            //cancel handel
+            //cancel handle
         }
     }
     
     func onNotification() {
         tamaraSDK.dismiss(animated: true) {
-            //notification handel
+            //notification handle
         }
     }
 }
