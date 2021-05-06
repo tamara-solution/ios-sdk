@@ -175,10 +175,4 @@ extension UIKitSDKViewController: TamaraCheckoutDelegate {
         }
     }
     
-    
-    func quit() {
-        if tamaraSDK != nil {
-            tamaraSDK.dismiss(animated: true, completion: nil)
-        }
-    }
 }

@@ -22,11 +22,9 @@ public protocol TamaraCheckoutDelegate: class {
     /// Called if the user cancel
     func onCancel()
     
-    /// Called if the user cancel
+    /// Called if the user get notification link
     func onNotification()
     
-    /// Called when user cancel
-    func quit()
 }   
 
 
@@ -72,57 +70,25 @@ public class TamaraSDKCheckout: UIViewController {
         view = webView
     }
     
-    ///
-    private func redirect(absoluteUrl: URL) {        
-        if absoluteUrl.absoluteString.contains(self.merchantURL.success) {
-            // success url, dismissing the page with the payment token
-            self.delegate?.onSuccessfull()
-        } else if absoluteUrl.absoluteString.contains(self.merchantURL.failure) {
-            // fail url, dismissing the page
-            self.delegate?.onFailured()
-        } else if absoluteUrl.absoluteString.contains(self.merchantURL.cancel) {
-            self.delegate.onCancel()
-        }  else if absoluteUrl.absoluteString.contains(self.merchantURL.notification) {
-            self.delegate.onNotification()
-        } else {
-            self.delegate.quit()
-        }
-    }
 }
 
 extension TamaraSDKCheckout: WKNavigationDelegate, WKUIDelegate {
-    
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-//        self.viewModel.finishLoadingHandler()
-    }
-    
-    public func webViewDidClose(_ webView: WKWebView) {
-        self.delegate.quit()
-    }
-    
-    public func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-        
-        if (webView.url!.absoluteString.contains(self.merchantURL.success)) {
-            self.delegate.onSuccessfull()
-        } else if (webView.url!.absoluteString.contains(self.merchantURL.failure)) {
-            self.delegate.onFailured()
-        } else {
-            if !webView.url!.absoluteString.contains("tamara.co") {
-                self.delegate.quit()
-            }
-        }
-    }
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url = navigationAction.request.url else {
             return
         }
         if url.absoluteString.contains("tamara://") {
-            if url.absoluteString.contains("cancel") {
-                self.delegate.quit()
-            }  
+            if (webView.url!.absoluteString.contains(self.merchantURL.success)) {
+                self.delegate.onSuccessfull()
+            } else if (webView.url!.absoluteString.contains(self.merchantURL.failure)) {
+                self.delegate.onFailured()
+            } else if (webView.url!.absoluteString.contains(self.merchantURL.cancel)) {
+                self.delegate.onCancel()
+            } else  {
+                self.delegate.onNotification()
+            }
         }
         decisionHandler(.allow)
-    
     }
 }

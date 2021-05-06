@@ -30,6 +30,12 @@ struct CheckoutWebView: View {
                     self.appState.currentPage = .Success
                 }
                 
+                self.viewModel.onCancel = {
+                    //handel dismiss
+                    self.appState.isLoading = false
+                    self.appState.currentPage = .Info
+                }
+                
                 guard let url = URL(string: appState.viewModel.url) else {
                     print("nil")
                     return
