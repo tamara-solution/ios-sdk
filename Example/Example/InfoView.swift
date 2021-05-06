@@ -164,7 +164,7 @@ struct InfoView : View {
             DispatchQueue.main.async {
                 self.appState.isLoading = false
                 guard let item = checkoutSuccess else {return}
-                self.appState.viewModel = TamaraSDKCheckoutViewModel(url: item.checkoutUrl, merchantURL: merchantUrl, webView: nil)
+                self.appState.viewModel = TamaraSDKCheckoutViewModel(url: item.checkoutUrl, merchantURL: merchantUrl)
                 
                 self.appState.currentPage = AppPages.Checkout
             }
