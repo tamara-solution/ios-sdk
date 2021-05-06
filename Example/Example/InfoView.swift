@@ -77,11 +77,11 @@ struct InfoView : View {
         
         self.appState.isLoading = true
         
-        let totalAmountObject = TamaraAmount(amount: String(format:"%f", self.appState.orderTotal), currency: currency)
+        let totalAmountObject = TamaraAmount(amount: String(format:"%.2f", self.appState.orderTotal), currency: currency)
         
-        let taxAmountObject = TamaraAmount(amount: String(format:"%f", self.appState.orderTaxTotal), currency: currency)
+        let taxAmountObject = TamaraAmount(amount: String(format:"%.2f", self.appState.orderTaxTotal), currency: currency)
         
-        let shippingAmountObject = TamaraAmount(amount: String(format:"%f", self.appState.orderShippingTotal), currency: currency)
+        let shippingAmountObject = TamaraAmount(amount: String(format:"%.2f", self.appState.orderShippingTotal), currency: currency)
         
         var itemList: [TamaraItem] = []
         self.appState.cartItems.forEach { (item) in
@@ -91,10 +91,10 @@ struct InfoView : View {
                 name: item.name,
                 sku: item.sku,
                 quantity: 1,
-                unitPrice: TamaraAmount(amount: String(format:"%f", item.price), currency: currency),
-                discountAmount: TamaraAmount(amount: String(format:"%f", 0.0), currency: currency),
-                taxAmount: TamaraAmount(amount: String(format:"%f", item.tax), currency: currency),
-                totalAmount: TamaraAmount(amount: String(format:"%f", item.total), currency: currency)
+                unitPrice: TamaraAmount(amount: String(format:"%.2f", item.price), currency: currency),
+                discountAmount: TamaraAmount(amount: String(format:"%.2f", 0.0), currency: currency),
+                taxAmount: TamaraAmount(amount: String(format:"%.2f", item.tax), currency: currency),
+                totalAmount: TamaraAmount(amount: String(format:"%.2f", item.total), currency: currency)
             ))
         }
         
@@ -132,8 +132,8 @@ struct InfoView : View {
             lastName: "Lisa",
             phoneNumber: generatePhoneNumber(),
             email: "user@example.com",
-            nationalID: "123456",
-            dateOfBirth: "2020-04-18",
+            nationalID: "1234567890",
+            dateOfBirth: "1990-04-18",
             isFirstOrder: true
         )
         
@@ -157,15 +157,20 @@ struct InfoView : View {
             riskAssessment: nil
         )
         
+        
+        
         tamaraCheckout.processCheckout(body: requestBody, checkoutComplete: { (checkoutSuccess) in
             // Handle success case
             DispatchQueue.main.async {
                 self.appState.isLoading = false
                 guard let item = checkoutSuccess else {return}
-                self.appState.viewModel = TamaraSDKCheckoutViewModel(url: item.checkoutUrl, merchantURL: merchantUrl)
+                self.appState.viewModel = TamaraSDKCheckoutViewModel(url: item.checkoutUrl, merchantURL: merchantUrl, webView: nil)
+                
                 self.appState.currentPage = AppPages.Checkout
             }
 
+            
+            
         }, checkoutFailed: { (checkoutFailed) in
             // Handle failed case
             print(checkoutFailed?.message ?? "")

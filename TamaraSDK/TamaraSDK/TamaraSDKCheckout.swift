@@ -18,37 +18,37 @@ public protocol TamaraCheckoutDelegate: class {
 
     /// Called if the response is unsuccesful
     func onFailured()
+    
+    /// Called if the user cancel
+    func onCancel()
+    
+    /// Called if the user get notification link
+    func onNotification()
+    
 }   
 
 
-class TamaraSDKCheckout: UIViewController {
+public class TamaraSDKCheckout: UIViewController {
     private var webView: WKWebView!
     private var url: String!
+    private var merchantURL: TamaraMerchantURL!
     public var delegate: TamaraCheckoutDelegate!
     
-    private var successUrl: String!
-    private var failedUrl: String!
+
     
-    public init(url: String,merchantURL: TamaraMerchantURL) {
+    public init(childController: UIViewController,url: String,merchantURL: TamaraMerchantURL,webView: WKWebView? = WKWebView()) {
         self.url =  url
-        self.successUrl = merchantURL.success
-        self.failedUrl = merchantURL.failure
+        self.merchantURL = merchantURL
+        if let webV = webView {
+            self.webView = webV
+        }
         super.init(nibName: nil, bundle: nil)
     }
     
     
     /// Returns an object initialized from data in a given unarchiver.
     required public init?(coder aDecoder: NSCoder) {
-        successUrl = ""
-        failedUrl = ""
         super.init(coder: aDecoder)
-    }
-    
-    /// Creates the view that the controller manages.
-    public override func loadView() {
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        view = webView
     }
 
     /// Called after the controller's view is loaded into memory.
@@ -58,37 +58,37 @@ class TamaraSDKCheckout: UIViewController {
         guard let authUrl = url else { return }
         let myURL = URL(string: authUrl)
         let myRequest = URLRequest(url: myURL!)
-        webView.navigationDelegate = self
-        webView.load(myRequest)
-    }
-    
-    
-    ///
-    private func shouldDismiss(absoluteUrl: URL) {        
-        if absoluteUrl.absoluteString.contains(self.successUrl) {
-            // success url, dismissing the page with the payment token
-            self.dismiss(animated: true) {
-                self.delegate?.onSuccessfull()
-            }
-        } else {
-            // fail url, dismissing the page
-            self.dismiss(animated: true) {
-                self.delegate?.onFailured()
-            }
+        
+//        let webConfiguration = WKWebViewConfiguration()
+        
+        if webView == nil {
+            self.webView = WKWebView()
+            self.webView.frame = self.view.bounds
         }
+        self.webView.load(myRequest)
+        self.webView.navigationDelegate = self
+        view = webView
     }
+    
 }
 
-extension TamaraSDKCheckout: WKNavigationDelegate {
+extension TamaraSDKCheckout: WKNavigationDelegate, WKUIDelegate {
     
-    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        shouldDismiss(absoluteUrl: webView.url!)
-    }
-
-    /// Called when a web view receives a server redirect.
-    public func webView(_ webView: WKWebView,
-                        didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-        // stop the redirection
-        shouldDismiss(absoluteUrl: webView.url!)
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        guard let url = navigationAction.request.url else {
+            return
+        }
+        if url.absoluteString.contains("tamara://") {
+            if (webView.url!.absoluteString.contains(self.merchantURL.success)) {
+                self.delegate.onSuccessfull()
+            } else if (webView.url!.absoluteString.contains(self.merchantURL.failure)) {
+                self.delegate.onFailured()
+            } else if (webView.url!.absoluteString.contains(self.merchantURL.cancel)) {
+                self.delegate.onCancel()
+            } else  {
+                self.delegate.onNotification()
+            }
+        }
+        decisionHandler(.allow)
     }
 }

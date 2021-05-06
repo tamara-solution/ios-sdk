@@ -16,7 +16,7 @@ public class TamaraSDKCheckoutViewModel: ObservableObject {
     @Published public var url: String
     @Published public var merchantURL: TamaraMerchantURL
     @Published public var webView: WKWebView
-    @Published public var finishLoadingHandler: () -> Void = {}
+    @Published public var onCancel: () -> Void = {}
     @Published public var onSuccess: () -> Void = {}
     @Published public var onFailure: () -> Void = {}
     
@@ -60,21 +60,6 @@ public struct TamaraSDKCheckoutView: View, UIViewRepresentable {
             self.viewModel = viewModel
         }
         
-        public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            self.viewModel.finishLoadingHandler()
-        }
-        
-        public func webView(_ webView: WKWebView,
-                            didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-            if (webView.url!.absoluteString.contains(self.viewModel.merchantURL.success)) {
-                self.viewModel.onSuccess()
-            } else if (webView.url!.absoluteString.contains(self.viewModel.merchantURL.failure)) {
-                self.viewModel.onFailure()
-            } else {
-                self.viewModel.finishLoadingHandler()
-            }
-        }
-        
         public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, preferences: WKWebpagePreferences, decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {
             guard let url = navigationAction.request.url else {
                 return
@@ -87,9 +72,6 @@ public struct TamaraSDKCheckoutView: View, UIViewRepresentable {
             }
             decisionHandler(.allow, preferences)
         }
-        
-
-        
     }
 
     public func makeCoordinator() -> TamaraSDKCheckoutView.Coordinator {
