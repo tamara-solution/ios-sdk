@@ -34,7 +34,6 @@
 		8453DE492643DD850013D4FB /* UIKitSDKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8453DE472643DD850013D4FB /* UIKitSDKViewController.xib */; };
 		8453DE4D2643DD990013D4FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453DE4C2643DD990013D4FB /* Constants.swift */; };
 		8453DE552643E39A0013D4FB /* UIKitSDKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453DE542643E39A0013D4FB /* UIKitSDKView.swift */; };
-		8453DE5B26440D620013D4FB /* TamaraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8453DE5A26440D620013D4FB /* TamaraSDK.framework */; };
 		8453DE67264416120013D4FB /* TamaraCheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453DE66264416120013D4FB /* TamaraCheckoutViewModel.swift */; };
 		84EB1FA1254969F700DCCD1F /* TamaraPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB1FA0254969F700DCCD1F /* TamaraPopupView.swift */; };
 		84FC9B492543F77F0068AF31 /* AuthenticateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B442543F77F0068AF31 /* AuthenticateResponse.swift */; };
@@ -129,7 +128,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8453DE5B26440D620013D4FB /* TamaraSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
