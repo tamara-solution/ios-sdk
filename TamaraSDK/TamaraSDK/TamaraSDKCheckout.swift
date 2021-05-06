@@ -56,8 +56,6 @@ public class TamaraSDKCheckout: UIViewController {
         let myURL = URL(string: authUrl)
         let myRequest = URLRequest(url: myURL!)
         
-//        let webConfiguration = WKWebViewConfiguration()
-        
         if webView == nil {
             self.webView = WKWebView()
             self.webView.frame = self.view.bounds
