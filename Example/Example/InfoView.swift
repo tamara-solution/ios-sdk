@@ -132,7 +132,7 @@ struct InfoView : View {
             lastName: "Lisa",
             phoneNumber: generatePhoneNumber(),
             email: "user@example.com",
-            nationalID: "123456",
+            nationalID: "1234567890",
             dateOfBirth: "2020-04-18",
             isFirstOrder: true
         )
@@ -157,15 +157,20 @@ struct InfoView : View {
             riskAssessment: nil
         )
         
+        
+        
         tamaraCheckout.processCheckout(body: requestBody, checkoutComplete: { (checkoutSuccess) in
             // Handle success case
             DispatchQueue.main.async {
                 self.appState.isLoading = false
                 guard let item = checkoutSuccess else {return}
-                self.appState.viewModel = TamaraSDKCheckoutViewModel(url: item.checkoutUrl, merchantURL: merchantUrl)
+                self.appState.viewModel = TamaraSDKCheckoutViewModel(url: item.checkoutUrl, merchantURL: merchantUrl, webView: nil)
+                
                 self.appState.currentPage = AppPages.Checkout
             }
 
+            
+            
         }, checkoutFailed: { (checkoutFailed) in
             // Handle failed case
             print(checkoutFailed?.message ?? "")

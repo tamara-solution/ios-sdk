@@ -21,18 +21,21 @@ public protocol TamaraCheckoutDelegate: class {
 }   
 
 
-class TamaraSDKCheckout: UIViewController {
-    private var webView: WKWebView!
+public class TamaraSDKCheckout: UIViewController {
+    var webView: WKWebView!
     private var url: String!
     public var delegate: TamaraCheckoutDelegate!
     
     private var successUrl: String!
     private var failedUrl: String!
     
-    public init(url: String,merchantURL: TamaraMerchantURL) {
+    public init(url: String,merchantURL: TamaraMerchantURL,webView: WKWebView? = WKWebView()) {
         self.url =  url
         self.successUrl = merchantURL.success
         self.failedUrl = merchantURL.failure
+        if let webV = webView {
+            self.webView = webV
+        }
         super.init(nibName: nil, bundle: nil)
     }
     
