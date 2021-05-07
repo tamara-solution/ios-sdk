@@ -80,7 +80,7 @@ extension TamaraSDKCheckout: WKNavigationDelegate, WKUIDelegate {
             self.delegate.onCancel()
         } else if (url.absoluteString.contains(self.merchantURL.notification)) {
             self.delegate.onNotification()
-        } else {}
+        }
         decisionHandler(.allow)
     }
 }
