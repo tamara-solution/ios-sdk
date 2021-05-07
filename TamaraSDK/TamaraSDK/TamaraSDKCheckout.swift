@@ -34,9 +34,7 @@ public class TamaraSDKCheckout: UIViewController {
     private var merchantURL: TamaraMerchantURL!
     public var delegate: TamaraCheckoutDelegate!
     
-
-    
-    public init(childController: UIViewController,url: String,merchantURL: TamaraMerchantURL,webView: WKWebView? = WKWebView()) {
+    public init(url: String,merchantURL: TamaraMerchantURL,webView: WKWebView? = WKWebView()) {
         self.url =  url
         self.merchantURL = merchantURL
         if let webV = webView {
@@ -44,7 +42,6 @@ public class TamaraSDKCheckout: UIViewController {
         }
         super.init(nibName: nil, bundle: nil)
     }
-    
     
     /// Returns an object initialized from data in a given unarchiver.
     required public init?(coder aDecoder: NSCoder) {
@@ -55,11 +52,9 @@ public class TamaraSDKCheckout: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let authUrl = url else { return }
+        guard let authUrl = url, authUrl.isEmpty == false else { return }
         let myURL = URL(string: authUrl)
         let myRequest = URLRequest(url: myURL!)
-        
-//        let webConfiguration = WKWebViewConfiguration()
         
         if webView == nil {
             self.webView = WKWebView()
@@ -69,7 +64,6 @@ public class TamaraSDKCheckout: UIViewController {
         self.webView.navigationDelegate = self
         view = webView
     }
-    
 }
 
 extension TamaraSDKCheckout: WKNavigationDelegate, WKUIDelegate {
@@ -79,11 +73,11 @@ extension TamaraSDKCheckout: WKNavigationDelegate, WKUIDelegate {
             return
         }
         if url.absoluteString.contains("tamara://") {
-            if (webView.url!.absoluteString.contains(self.merchantURL.success)) {
+            if (url.absoluteString.contains(self.merchantURL.success)) {
                 self.delegate.onSuccessfull()
-            } else if (webView.url!.absoluteString.contains(self.merchantURL.failure)) {
+            } else if (url.absoluteString.contains(self.merchantURL.failure)) {
                 self.delegate.onFailured()
-            } else if (webView.url!.absoluteString.contains(self.merchantURL.cancel)) {
+            } else if (url.absoluteString.contains(self.merchantURL.cancel)) {
                 self.delegate.onCancel()
             } else  {
                 self.delegate.onNotification()

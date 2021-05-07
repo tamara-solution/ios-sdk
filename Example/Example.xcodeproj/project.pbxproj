@@ -34,6 +34,7 @@
 		8453DE492643DD850013D4FB /* UIKitSDKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8453DE472643DD850013D4FB /* UIKitSDKViewController.xib */; };
 		8453DE4D2643DD990013D4FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453DE4C2643DD990013D4FB /* Constants.swift */; };
 		8453DE552643E39A0013D4FB /* UIKitSDKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453DE542643E39A0013D4FB /* UIKitSDKView.swift */; };
+		8453DE67264416120013D4FB /* TamaraCheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453DE66264416120013D4FB /* TamaraCheckoutViewModel.swift */; };
 		84EB1FA1254969F700DCCD1F /* TamaraPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB1FA0254969F700DCCD1F /* TamaraPopupView.swift */; };
 		84FC9B492543F77F0068AF31 /* AuthenticateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B442543F77F0068AF31 /* AuthenticateResponse.swift */; };
 		84FC9B4A2543F77F0068AF31 /* AuthenticateRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B452543F77F0068AF31 /* AuthenticateRequestBody.swift */; };
@@ -109,6 +110,8 @@
 		8453DE4C2643DD990013D4FB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Example/Constants.swift; sourceTree = SOURCE_ROOT; };
 		8453DE502643DDE10013D4FB /* TamaraSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TamaraSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8453DE542643E39A0013D4FB /* UIKitSDKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSDKView.swift; sourceTree = "<group>"; };
+		8453DE5A26440D620013D4FB /* TamaraSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TamaraSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8453DE66264416120013D4FB /* TamaraCheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraCheckoutViewModel.swift; sourceTree = "<group>"; };
 		84EB1FA0254969F700DCCD1F /* TamaraPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraPopupView.swift; sourceTree = "<group>"; };
 		84FC9B442543F77F0068AF31 /* AuthenticateResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateResponse.swift; sourceTree = "<group>"; };
 		84FC9B452543F77F0068AF31 /* AuthenticateRequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateRequestBody.swift; sourceTree = "<group>"; };
@@ -182,11 +185,12 @@
 				649113E0245ED5F20052BF0F /* SuccessView.swift */,
 				84FC9BA4254425850068AF31 /* CheckoutWebView.swift */,
 				84EB1FA0254969F700DCCD1F /* TamaraPopupView.swift */,
+				8453DE542643E39A0013D4FB /* UIKitSDKView.swift */,
+				8453DE66264416120013D4FB /* TamaraCheckoutViewModel.swift */,
 				645368F02450A7D900ED9A3B /* Assets.xcassets */,
 				645368F52450A7D900ED9A3B /* LaunchScreen.storyboard */,
 				645368F82450A7D900ED9A3B /* Info.plist */,
 				645368F22450A7D900ED9A3B /* Preview Content */,
-				8453DE542643E39A0013D4FB /* UIKitSDKView.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -253,6 +257,7 @@
 		6D9D1B43AE8324F294D5D316 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8453DE5A26440D620013D4FB /* TamaraSDK.framework */,
 				8453DE502643DDE10013D4FB /* TamaraSDK.framework */,
 				CEFB38360522BE0F4A47CF92 /* Pods_Example.framework */,
 			);
@@ -468,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8453DE67264416120013D4FB /* TamaraCheckoutViewModel.swift in Sources */,
 				648545B624627768007305A5 /* OtherContants.swift in Sources */,
 				649113E1245ED5F20052BF0F /* SuccessView.swift in Sources */,
 				84FC9B4A2543F77F0068AF31 /* AuthenticateRequestBody.swift in Sources */,

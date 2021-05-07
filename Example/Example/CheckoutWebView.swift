@@ -16,61 +16,27 @@ struct CheckoutWebView: View {
     @ObservedObject var viewModel = TamaraSDKCheckoutViewModel()
     
     var body: some View {
-        TamaraSDKCheckoutView(appState.viewModel)
-            .onAppear {
-                self.viewModel.onSuccess = {
-                    self.appState.isLoading = false
-                    self.appState.orderSuccessed = true
-                    self.appState.currentPage = .Success
-                }
-                
-                self.viewModel.onFailure = {
-                    self.appState.isLoading = false
-                    self.appState.orderSuccessed = false
-                    self.appState.currentPage = .Success
-                }
-                
-                self.viewModel.onCancel = {
-                    //handel dismiss
-                    self.appState.isLoading = false
-                    self.appState.currentPage = .Info
-                }
-                
-                guard let url = URL(string: appState.viewModel.url) else {
-                    print("nil")
-                    return
-                }
-                self.viewModel.webView.load(URLRequest(url: url) )
+        HStack {
+            SDKViewController(url: appState.viewModel.url,
+                              merchantUrl: appState.viewModel.merchantURL,
+                              delegate: SDKViewController.Delegate (
+                                success: {
+                                    //Handle Success
+                                    appState.orderSuccessed = true
+                                    appState.currentPage = .Success
+                                }, failure: {
+                                    //Handle Failed
+                                    appState.orderSuccessed = false
+                                    appState.currentPage = .Success
+                                }, cancel: {
+                                    //Handle Cancel
+                                    appState.currentPage = .Info
+                                }, notification: {
+                                    //Handle Notification
+                                    appState.currentPage = .Info
+                                })
+            )
         }
         .navigationBarTitle("Checkout", displayMode: .inline)
-        .navigationBarItems(trailing: HStack {
-            Button(action: goBack) {
-                Image(systemName: "chevron.left")
-                    .imageScale(.large)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 32, height: 32)
-            }.disabled(!self.appState.viewModel.webView.canGoBack)
-            Button(action: goForward) {
-                Image(systemName: "chevron.right")
-                    .imageScale(.large)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 32, height: 32)
-            }.disabled(!self.appState.viewModel.webView.canGoForward)
-        })
-    }
-    
-    func goBack() {
-        self.viewModel.webView.goBack()
-    }
-    
-    func goForward() {
-        self.viewModel.webView.goForward()
-    }
-}
-
-@available(iOS 13.0.0, *)
-struct CheckoutWebView_Previews: PreviewProvider {
-    static var previews: some View {
-        CheckoutWebView()
     }
 }

@@ -127,7 +127,7 @@ class UIKitSDKViewController: UIViewController {
             // Handle success case
             DispatchQueue.main.async {
                 guard let item = checkoutSuccess else {return}
-                self.tamaraSDK = TamaraSDKCheckout(childController: self, url: item.checkoutUrl, merchantURL: merchantUrl, webView: nil)
+                self.tamaraSDK = TamaraSDKCheckout(url: item.checkoutUrl, merchantURL: merchantUrl, webView: nil)
                 self.tamaraSDK.delegate = self
                 self.present(self.tamaraSDK, animated: true, completion: nil)
             }
