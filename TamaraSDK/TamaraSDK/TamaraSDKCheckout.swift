@@ -72,16 +72,14 @@ extension TamaraSDKCheckout: WKNavigationDelegate, WKUIDelegate {
         guard let url = navigationAction.request.url else {
             return
         }
-        if url.absoluteString.contains("tamara://") {
-            if (url.absoluteString.contains(self.merchantURL.success)) {
-                self.delegate.onSuccessfull()
-            } else if (url.absoluteString.contains(self.merchantURL.failure)) {
-                self.delegate.onFailured()
-            } else if (url.absoluteString.contains(self.merchantURL.cancel)) {
-                self.delegate.onCancel()
-            } else  {
-                self.delegate.onNotification()
-            }
+        if (url.absoluteString.contains(self.merchantURL.success)) {
+            self.delegate.onSuccessfull()
+        } else if (url.absoluteString.contains(self.merchantURL.failure)) {
+            self.delegate.onFailured()
+        } else if (url.absoluteString.contains(self.merchantURL.cancel)) {
+            self.delegate.onCancel()
+        } else if (url.absoluteString.contains(self.merchantURL.notification)) {
+            self.delegate.onNotification()
         }
         decisionHandler(.allow)
     }
