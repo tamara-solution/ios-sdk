@@ -104,6 +104,7 @@
 		64F9A85F2452AD61003302AE /* LabelTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextView.swift; sourceTree = "<group>"; };
 		64F9A8652452E5AD003302AE /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		64F9A869245345EE003302AE /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		8414A44C26458AD000F17028 /* TamaraSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TamaraSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		843C22E225F22FB800FFA811 /* CheckoutError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutError.swift; sourceTree = "<group>"; };
 		8453DE462643DD850013D4FB /* UIKitSDKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIKitSDKViewController.swift; path = Example/UIKitSDKViewController.swift; sourceTree = SOURCE_ROOT; };
 		8453DE472643DD850013D4FB /* UIKitSDKViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIKitSDKViewController.xib; path = Example/UIKitSDKViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -257,6 +258,7 @@
 		6D9D1B43AE8324F294D5D316 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8414A44C26458AD000F17028 /* TamaraSDK.framework */,
 				8453DE5A26440D620013D4FB /* TamaraSDK.framework */,
 				8453DE502643DDE10013D4FB /* TamaraSDK.framework */,
 				CEFB38360522BE0F4A47CF92 /* Pods_Example.framework */,
