@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "TamaraSDK"
-  spec.version      = "0.0.16"
+  spec.version      = "0.1.0"
   spec.summary      = "SDK for tamara.co"
 
   spec.description  = <<-DESC

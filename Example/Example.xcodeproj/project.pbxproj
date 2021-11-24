@@ -174,7 +174,9 @@
 		645368E92450A7D900ED9A3B /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				8453DE452643DD780013D4FB /* UIKit */,
+				8453DE4C2643DD990013D4FB /* Constants.swift */,
+				8453DE462643DD850013D4FB /* UIKitSDKViewController.swift */,
+				8453DE472643DD850013D4FB /* UIKitSDKViewController.xib */,
 				84FC9B362543F6FB0068AF31 /* Tamara */,
 				6467E7D82462579F00099EC1 /* Constants */,
 				64F9A8562452AC69003302AE /* Components */,
@@ -264,16 +266,6 @@
 				CEFB38360522BE0F4A47CF92 /* Pods_Example.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8453DE452643DD780013D4FB /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				8453DE4C2643DD990013D4FB /* Constants.swift */,
-				8453DE462643DD850013D4FB /* UIKitSDKViewController.swift */,
-				8453DE472643DD850013D4FB /* UIKitSDKViewController.xib */,
-			);
-			path = UIKit;
 			sourceTree = "<group>";
 		};
 		84FC9B362543F6FB0068AF31 /* Tamara */ = {

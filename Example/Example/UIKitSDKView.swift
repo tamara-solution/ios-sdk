@@ -24,12 +24,13 @@ struct SDKViewController: UIViewControllerRepresentable {
     }
     
     func makeUIViewController(context: Context) -> TamaraSDKCheckout {
-        let vc = TamaraSDKCheckout(url: self.url, merchantURL: merchantURL, webView: nil)
+        let vc = TamaraSDKCheckout(url: self.url, merchantURL: merchantURL)
         vc.delegate = delegate
         return vc
     }
     
     func updateUIViewController(_ uiViewController: TamaraSDKCheckout, context: Context) {
+        uiViewController.delegate = delegate
     }
 }
 
