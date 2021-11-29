@@ -39,17 +39,20 @@ public class TamaraSDKCheckout: UIViewController {
     
     private var urlString: String = ""
     private var merchantURL: TamaraMerchantURL?
+    private var autoHideNavigationBar: Bool = false
     
     public weak var delegate: TamaraCheckoutDelegate?
     
     public init(
         url: String,
-        merchantURL: TamaraMerchantURL?
+        merchantURL: TamaraMerchantURL?,
+        autoHideNavigationBar: Bool = false
     ) {
         super.init(nibName: nil, bundle: nil)
         
         self.urlString = url
         self.merchantURL = merchantURL
+        self.autoHideNavigationBar = autoHideNavigationBar
     }
     
     /// Returns an object initialized from data in a given unarchiver.
@@ -73,7 +76,7 @@ public class TamaraSDKCheckout: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let nav = self.navigationController {
+        if self.autoHideNavigationBar, let nav = self.navigationController {
             self.navigationBarIsHidden = nav.navigationBar.isHidden
             nav.navigationBar.isHidden = true
         }
@@ -82,7 +85,7 @@ public class TamaraSDKCheckout: UIViewController {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if let nav = self.navigationController {
+        if self.autoHideNavigationBar, let nav = self.navigationController {
             nav.navigationBar.isHidden = self.navigationBarIsHidden
         }
     }
@@ -90,7 +93,9 @@ public class TamaraSDKCheckout: UIViewController {
     // MARK: - Private methods
     
     private func setupViews() {
-        self.setupViewInsets()
+        if self.autoHideNavigationBar {
+            self.setupViewInsets()
+        }
         
         self.view.addSubview(self.webView)
     }
