@@ -7,17 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		013215912A2847C0004753E1 /* CapturePaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132158C2A2847C0004753E1 /* CapturePaymentRequest.swift */; };
+		013215922A2847C0004753E1 /* ShippingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132158D2A2847C0004753E1 /* ShippingInfo.swift */; };
+		013215932A2847C0004753E1 /* OrderReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132158E2A2847C0004753E1 /* OrderReference.swift */; };
+		013215942A2847C0004753E1 /* CancelOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132158F2A2847C0004753E1 /* CancelOrder.swift */; };
+		013215952A2847C0004753E1 /* PaymentRefund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013215902A2847C0004753E1 /* PaymentRefund.swift */; };
+		046879042A39A84600E28603 /* TamaraWidgetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046879032A39A84600E28603 /* TamaraWidgetVC.swift */; };
+		04D2B13A2A39A6760010534D /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013215722A28475A004753E1 /* PaymentVC.swift */; };
+		04E2A3D42A43473300475536 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3D32A43473300475536 /* ViewModel.swift */; };
+		04E2A3D92A43473E00475536 /* TamaraApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3D62A43473E00475536 /* TamaraApi.swift */; };
+		04E2A3DA2A43473E00475536 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3D72A43473E00475536 /* AppError.swift */; };
+		04E2A3DB2A43473E00475536 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3D82A43473E00475536 /* NetworkManager.swift */; };
+		04E2A3E62A43474B00475536 /* CapturePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3DD2A43474B00475536 /* CapturePayment.swift */; };
+		04E2A3E72A43474B00475536 /* WidgetProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3DE2A43474B00475536 /* WidgetProperties.swift */; };
+		04E2A3E82A43474B00475536 /* OrderReferenceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3DF2A43474B00475536 /* OrderReferenceResponse.swift */; };
+		04E2A3E92A43474B00475536 /* CheckoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3E02A43474B00475536 /* CheckoutSession.swift */; };
+		04E2A3EA2A43474B00475536 /* AuthoriseOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3E12A43474B00475536 /* AuthoriseOrder.swift */; };
+		04E2A3EB2A43474B00475536 /* CancelOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3E22A43474B00475536 /* CancelOrderResponse.swift */; };
+		04E2A3EC2A43474B00475536 /* OrderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3E32A43474B00475536 /* OrderDetail.swift */; };
+		04E2A3ED2A43474B00475536 /* DiscountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3E42A43474B00475536 /* DiscountDetail.swift */; };
+		04E2A3EE2A43474B00475536 /* RefundsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2A3E52A43474B00475536 /* RefundsResponse.swift */; };
 		645368922450A03200ED9A3B /* TamaraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 645368882450A03200ED9A3B /* TamaraSDK.framework */; };
 		645368972450A03200ED9A3B /* TamaraSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645368962450A03200ED9A3B /* TamaraSDKTests.swift */; };
 		645368992450A03200ED9A3B /* TamaraSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 6453688B2450A03200ED9A3B /* TamaraSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		64B9E95B255527030046E342 /* TamaraLearnMorePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B9E95D255527030046E342 /* TamaraLearnMorePopup.xib */; };
-		64B9E96B25552D090046E342 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64B9E96A25552D090046E342 /* Assets.xcassets */; };
-		84EB1F40254957D700DCCD1F /* TamaraLearnMorePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB1F3F254957D700DCCD1F /* TamaraLearnMorePopup.swift */; };
-		84EB1F7B25495F8C00DCCD1F /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7825495F8B00DCCD1F /* close.png */; };
-		84EB1F7C25495F8C00DCCD1F /* close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7925495F8B00DCCD1F /* close@3x.png */; };
-		84EB1F7D25495F8C00DCCD1F /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1F7A25495F8B00DCCD1F /* close@2x.png */; };
 		84FC9B332543F07A0068AF31 /* TamaraSDKCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B322543F07A0068AF31 /* TamaraSDKCheckout.swift */; };
 		84FC9B562543FB480068AF31 /* TamaraMerchantURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B552543FB480068AF31 /* TamaraMerchantURL.swift */; };
+		84FC9B8B2544150B0068AF31 /* TamaraSDKCheckoutSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B892544150B0068AF31 /* TamaraSDKCheckoutSwiftUI.swift */; };
+		FAC2F62A2A03A27C00270FC3 /* TamaraSDKPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F6292A03A27C00270FC3 /* TamaraSDKPayment.swift */; };
+		FAC2F62D2A03A5C000270FC3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F62C2A03A5C000270FC3 /* Order.swift */; };
+		FAC2F62F2A03A81D00270FC3 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F62E2A03A81D00270FC3 /* Address.swift */; };
+		FAC2F6312A03B0E700270FC3 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F6302A03B0E700270FC3 /* Consumer.swift */; };
+		FAC2F6332A03B40D00270FC3 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F6322A03B40D00270FC3 /* Discount.swift */; };
+		FAC2F6352A03B45100270FC3 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F6342A03B45100270FC3 /* Amount.swift */; };
+		FAC2F6372A03B55200270FC3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F6362A03B55200270FC3 /* Item.swift */; };
+		FAC2F6392A03B7D200270FC3 /* MerchantUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2F6382A03B7D200270FC3 /* MerchantUrl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,21 +54,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		013215722A28475A004753E1 /* PaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		0132158C2A2847C0004753E1 /* CapturePaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePaymentRequest.swift; sourceTree = "<group>"; };
+		0132158D2A2847C0004753E1 /* ShippingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingInfo.swift; sourceTree = "<group>"; };
+		0132158E2A2847C0004753E1 /* OrderReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderReference.swift; sourceTree = "<group>"; };
+		0132158F2A2847C0004753E1 /* CancelOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelOrder.swift; sourceTree = "<group>"; };
+		013215902A2847C0004753E1 /* PaymentRefund.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentRefund.swift; sourceTree = "<group>"; };
+		046879032A39A84600E28603 /* TamaraWidgetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TamaraWidgetVC.swift; sourceTree = "<group>"; };
+		04E2A3D32A43473300475536 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		04E2A3D62A43473E00475536 /* TamaraApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TamaraApi.swift; sourceTree = "<group>"; };
+		04E2A3D72A43473E00475536 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		04E2A3D82A43473E00475536 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		04E2A3DD2A43474B00475536 /* CapturePayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePayment.swift; sourceTree = "<group>"; };
+		04E2A3DE2A43474B00475536 /* WidgetProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetProperties.swift; sourceTree = "<group>"; };
+		04E2A3DF2A43474B00475536 /* OrderReferenceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderReferenceResponse.swift; sourceTree = "<group>"; };
+		04E2A3E02A43474B00475536 /* CheckoutSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutSession.swift; sourceTree = "<group>"; };
+		04E2A3E12A43474B00475536 /* AuthoriseOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthoriseOrder.swift; sourceTree = "<group>"; };
+		04E2A3E22A43474B00475536 /* CancelOrderResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelOrderResponse.swift; sourceTree = "<group>"; };
+		04E2A3E32A43474B00475536 /* OrderDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetail.swift; sourceTree = "<group>"; };
+		04E2A3E42A43474B00475536 /* DiscountDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountDetail.swift; sourceTree = "<group>"; };
+		04E2A3E52A43474B00475536 /* RefundsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefundsResponse.swift; sourceTree = "<group>"; };
 		645368882450A03200ED9A3B /* TamaraSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TamaraSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6453688B2450A03200ED9A3B /* TamaraSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TamaraSDK.h; sourceTree = "<group>"; };
 		6453688C2450A03200ED9A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		645368912450A03200ED9A3B /* TamaraSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TamaraSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		645368962450A03200ED9A3B /* TamaraSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraSDKTests.swift; sourceTree = "<group>"; };
 		645368982450A03200ED9A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64B9E96A25552D090046E342 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		64B9E983255660D20046E342 /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ar; path = ar.lproj/TamaraLearnMorePopup.xib; sourceTree = "<group>"; };
-		64B9E984255660DD0046E342 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TamaraLearnMorePopup.xib; sourceTree = "<group>"; };
-		84EB1F3F254957D700DCCD1F /* TamaraLearnMorePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraLearnMorePopup.swift; sourceTree = "<group>"; };
-		84EB1F7825495F8B00DCCD1F /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
-		84EB1F7925495F8B00DCCD1F /* close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@3x.png"; sourceTree = "<group>"; };
-		84EB1F7A25495F8B00DCCD1F /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
 		84FC9B322543F07A0068AF31 /* TamaraSDKCheckout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraSDKCheckout.swift; sourceTree = "<group>"; };
 		84FC9B552543FB480068AF31 /* TamaraMerchantURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraMerchantURL.swift; sourceTree = "<group>"; };
+		84FC9B892544150B0068AF31 /* TamaraSDKCheckoutSwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TamaraSDKCheckoutSwiftUI.swift; sourceTree = "<group>"; };
+		FAC2F6292A03A27C00270FC3 /* TamaraSDKPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraSDKPayment.swift; sourceTree = "<group>"; };
+		FAC2F62C2A03A5C000270FC3 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		FAC2F62E2A03A81D00270FC3 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		FAC2F6302A03B0E700270FC3 /* Consumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
+		FAC2F6322A03B40D00270FC3 /* Discount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
+		FAC2F6342A03B45100270FC3 /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
+		FAC2F6362A03B55200270FC3 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		FAC2F6382A03B7D200270FC3 /* MerchantUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantUrl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +112,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		013215712A28475A004753E1 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				046879032A39A84600E28603 /* TamaraWidgetVC.swift */,
+				013215722A28475A004753E1 /* PaymentVC.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		0132158B2A2847C0004753E1 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				0132158C2A2847C0004753E1 /* CapturePaymentRequest.swift */,
+				0132158D2A2847C0004753E1 /* ShippingInfo.swift */,
+				0132158E2A2847C0004753E1 /* OrderReference.swift */,
+				0132158F2A2847C0004753E1 /* CancelOrder.swift */,
+				013215902A2847C0004753E1 /* PaymentRefund.swift */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		04E2A3D22A43473300475536 /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+				04E2A3D32A43473300475536 /* ViewModel.swift */,
+			);
+			path = scenes;
+			sourceTree = "<group>";
+		};
+		04E2A3D52A43473E00475536 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				04E2A3D62A43473E00475536 /* TamaraApi.swift */,
+				04E2A3D72A43473E00475536 /* AppError.swift */,
+				04E2A3D82A43473E00475536 /* NetworkManager.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		04E2A3DC2A43474B00475536 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				04E2A3DD2A43474B00475536 /* CapturePayment.swift */,
+				04E2A3DE2A43474B00475536 /* WidgetProperties.swift */,
+				04E2A3DF2A43474B00475536 /* OrderReferenceResponse.swift */,
+				04E2A3E02A43474B00475536 /* CheckoutSession.swift */,
+				04E2A3E12A43474B00475536 /* AuthoriseOrder.swift */,
+				04E2A3E22A43474B00475536 /* CancelOrderResponse.swift */,
+				04E2A3E32A43474B00475536 /* OrderDetail.swift */,
+				04E2A3E42A43474B00475536 /* DiscountDetail.swift */,
+				04E2A3E52A43474B00475536 /* RefundsResponse.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
 		6453687E2450A03200ED9A3B = {
 			isa = PBXGroup;
 			children = (
@@ -88,14 +188,16 @@
 		6453688A2450A03200ED9A3B /* TamaraSDK */ = {
 			isa = PBXGroup;
 			children = (
-				64B9E96A25552D090046E342 /* Assets.xcassets */,
-				84EB1F5D25495BAB00DCCD1F /* Resource */,
+				04E2A3D52A43473E00475536 /* api */,
+				04E2A3D22A43473300475536 /* scenes */,
+				013215712A28475A004753E1 /* controller */,
+				FAC2F62B2A03A54800270FC3 /* model */,
+				FAC2F6292A03A27C00270FC3 /* TamaraSDKPayment.swift */,
+				84FC9B892544150B0068AF31 /* TamaraSDKCheckoutSwiftUI.swift */,
 				6453688B2450A03200ED9A3B /* TamaraSDK.h */,
 				84FC9B322543F07A0068AF31 /* TamaraSDKCheckout.swift */,
 				84FC9B552543FB480068AF31 /* TamaraMerchantURL.swift */,
 				6453688C2450A03200ED9A3B /* Info.plist */,
-				84EB1F3F254957D700DCCD1F /* TamaraLearnMorePopup.swift */,
-				64B9E95D255527030046E342 /* TamaraLearnMorePopup.xib */,
 			);
 			path = TamaraSDK;
 			sourceTree = "<group>";
@@ -109,14 +211,20 @@
 			path = TamaraSDKTests;
 			sourceTree = "<group>";
 		};
-		84EB1F5D25495BAB00DCCD1F /* Resource */ = {
+		FAC2F62B2A03A54800270FC3 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				84EB1F7825495F8B00DCCD1F /* close.png */,
-				84EB1F7A25495F8B00DCCD1F /* close@2x.png */,
-				84EB1F7925495F8B00DCCD1F /* close@3x.png */,
+				04E2A3DC2A43474B00475536 /* response */,
+				0132158B2A2847C0004753E1 /* request */,
+				FAC2F62C2A03A5C000270FC3 /* Order.swift */,
+				FAC2F62E2A03A81D00270FC3 /* Address.swift */,
+				FAC2F6302A03B0E700270FC3 /* Consumer.swift */,
+				FAC2F6322A03B40D00270FC3 /* Discount.swift */,
+				FAC2F6342A03B45100270FC3 /* Amount.swift */,
+				FAC2F6362A03B55200270FC3 /* Item.swift */,
+				FAC2F6382A03B7D200270FC3 /* MerchantUrl.swift */,
 			);
-			path = Resource;
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,7 +303,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ar,
 			);
 			mainGroup = 6453687E2450A03200ED9A3B;
 			productRefGroup = 645368892450A03200ED9A3B /* Products */;
@@ -213,11 +320,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84EB1F7C25495F8C00DCCD1F /* close@3x.png in Resources */,
-				84EB1F7B25495F8C00DCCD1F /* close.png in Resources */,
-				64B9E96B25552D090046E342 /* Assets.xcassets in Resources */,
-				64B9E95B255527030046E342 /* TamaraLearnMorePopup.xib in Resources */,
-				84EB1F7D25495F8C00DCCD1F /* close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,9 +337,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84EB1F40254957D700DCCD1F /* TamaraLearnMorePopup.swift in Sources */,
+				013215942A2847C0004753E1 /* CancelOrder.swift in Sources */,
+				04E2A3EB2A43474B00475536 /* CancelOrderResponse.swift in Sources */,
+				04D2B13A2A39A6760010534D /* PaymentVC.swift in Sources */,
+				FAC2F6372A03B55200270FC3 /* Item.swift in Sources */,
+				FAC2F62F2A03A81D00270FC3 /* Address.swift in Sources */,
+				04E2A3DB2A43473E00475536 /* NetworkManager.swift in Sources */,
+				84FC9B8B2544150B0068AF31 /* TamaraSDKCheckoutSwiftUI.swift in Sources */,
+				FAC2F6392A03B7D200270FC3 /* MerchantUrl.swift in Sources */,
+				04E2A3E62A43474B00475536 /* CapturePayment.swift in Sources */,
+				013215922A2847C0004753E1 /* ShippingInfo.swift in Sources */,
+				04E2A3EE2A43474B00475536 /* RefundsResponse.swift in Sources */,
+				04E2A3E82A43474B00475536 /* OrderReferenceResponse.swift in Sources */,
+				FAC2F6352A03B45100270FC3 /* Amount.swift in Sources */,
+				FAC2F6332A03B40D00270FC3 /* Discount.swift in Sources */,
 				84FC9B332543F07A0068AF31 /* TamaraSDKCheckout.swift in Sources */,
+				FAC2F6312A03B0E700270FC3 /* Consumer.swift in Sources */,
+				04E2A3D42A43473300475536 /* ViewModel.swift in Sources */,
+				04E2A3EA2A43474B00475536 /* AuthoriseOrder.swift in Sources */,
+				046879042A39A84600E28603 /* TamaraWidgetVC.swift in Sources */,
+				04E2A3E92A43474B00475536 /* CheckoutSession.swift in Sources */,
+				04E2A3EC2A43474B00475536 /* OrderDetail.swift in Sources */,
+				013215952A2847C0004753E1 /* PaymentRefund.swift in Sources */,
+				04E2A3ED2A43474B00475536 /* DiscountDetail.swift in Sources */,
+				FAC2F62D2A03A5C000270FC3 /* Order.swift in Sources */,
+				FAC2F62A2A03A27C00270FC3 /* TamaraSDKPayment.swift in Sources */,
+				04E2A3E72A43474B00475536 /* WidgetProperties.swift in Sources */,
+				013215932A2847C0004753E1 /* OrderReference.swift in Sources */,
+				013215912A2847C0004753E1 /* CapturePaymentRequest.swift in Sources */,
+				04E2A3D92A43473E00475536 /* TamaraApi.swift in Sources */,
 				84FC9B562543FB480068AF31 /* TamaraMerchantURL.swift in Sources */,
+				04E2A3DA2A43473E00475536 /* AppError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,24 +389,11 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		64B9E95D255527030046E342 /* TamaraLearnMorePopup.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				64B9E983255660D20046E342 /* ar */,
-				64B9E984255660DD0046E342 /* en */,
-			);
-			name = TamaraLearnMorePopup.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		6453689A2450A03200ED9A3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -341,7 +458,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -400,11 +516,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UME38WJ3HH;
+				DEVELOPMENT_TEAM = DRM22J5FX9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -418,7 +533,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.tamara.TamaraSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -430,11 +544,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UME38WJ3HH;
+				DEVELOPMENT_TEAM = DRM22J5FX9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -448,7 +561,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.tamara.TamaraSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

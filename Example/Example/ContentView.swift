@@ -18,7 +18,9 @@ struct ContentView : View {
     var body: some View {
         LoadingView(isLoading: self.$appState.isLoading) {
             NavigationView {
-                if self.appState.currentPage == AppPages.Cart {
+                if self.appState.currentPage == AppPages.Main {
+                    MainView()
+                } else if self.appState.currentPage == AppPages.Cart {
                     CartView()
                 } else if self.appState.currentPage == AppPages.Info {
                     InfoView()

@@ -9,41 +9,8 @@
 import SwiftUI
 import TamaraSDK
 
-struct ViewControllerHolder {
-    weak var value: UIViewController?
-}
-
-struct ViewControllerKey: EnvironmentKey {
-    static var defaultValue: ViewControllerHolder {
-        return ViewControllerHolder(value: UIApplication.shared.windows.first?.rootViewController)
-    }
-}
-
-extension EnvironmentValues {
-    var viewController: UIViewController? {
-        get { return self[ViewControllerKey.self].value }
-        set { self[ViewControllerKey.self].value = newValue }
-    }
-}
-
-extension UIViewController {
-    func present<Content: View>(style: UIModalPresentationStyle = .automatic, transitionStyle: UIModalTransitionStyle = .coverVertical, @ViewBuilder builder: () -> Content) {
-        let toPresent = UIHostingController(rootView: AnyView(EmptyView()))
-        toPresent.modalPresentationStyle = style
-        toPresent.modalTransitionStyle = transitionStyle
-        toPresent.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
-        toPresent.rootView = AnyView(
-            builder()
-                .environment(\.viewController, toPresent)
-        )
-        self.present(toPresent, animated: true, completion: nil)
-    }
-}
-
 struct InfoView : View {
     @EnvironmentObject var appState: AppState
-    @State private var showLearnMore: Bool = false
-    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     
     var body: some View {
         List {
@@ -53,23 +20,14 @@ struct InfoView : View {
             LabelTextView(label: "Address Line 2", placeHolder: "Block A", text: self.$appState.shippingAddress.line2)
             LabelTextView(label: "Region", placeHolder: "As Sulimaniyah", text: self.$appState.shippingAddress.region)
             LabelTextView(label: "City", placeHolder: "Riyadh", text: self.$appState.shippingAddress.city)
-            LabelTextView(label: "Phone Number", placeHolder: "54116698", text: self.$appState.shippingAddress.phoneNumber)
+            LabelTextView(label: "Phone Number", placeHolder: "502223333", text: self.$appState.shippingAddress.phoneNumber)
             RoundedButton(label: "Checkout", buttonAction: self.checkout)
                 .padding(.top, 20)
         }
         .buttonStyle(BorderlessButtonStyle())
         .padding(.horizontal, 5)
-        .navigationBarTitle("Cart")
-        .navigationBarItems(trailing:
-            Button(action: {
-                self.showLearnMore = true
-            }) {
-                Image(uiImage: UIImage(named: "help") ?? UIImage())
-            }
-        )
-        .popover(isPresented: self.$showLearnMore, content: {
-            TamaraPopupView()
-        })
+        .navigationBarTitle("Customer Info")
+
     }
     
     func checkout() {
@@ -77,11 +35,11 @@ struct InfoView : View {
         
         self.appState.isLoading = true
         
-        let totalAmountObject = TamaraAmount(amount: String(format:"%.2f", self.appState.orderTotal), currency: currency)
+        let totalAmountObject = TamaraAmount(amount: self.appState.orderTotal, currency: currency)
         
-        let taxAmountObject = TamaraAmount(amount: String(format:"%.2f", self.appState.orderTaxTotal), currency: currency)
+        let taxAmountObject = TamaraAmount(amount: self.appState.orderTaxTotal, currency: currency)
         
-        let shippingAmountObject = TamaraAmount(amount: String(format:"%.2f", self.appState.orderShippingTotal), currency: currency)
+        let shippingAmountObject = TamaraAmount(amount: self.appState.orderShippingTotal, currency: currency)
         
         var itemList: [TamaraItem] = []
         self.appState.cartItems.forEach { (item) in
@@ -91,10 +49,10 @@ struct InfoView : View {
                 name: item.name,
                 sku: item.sku,
                 quantity: 1,
-                unitPrice: TamaraAmount(amount: String(format:"%.2f", item.price), currency: currency),
-                discountAmount: TamaraAmount(amount: String(format:"%.2f", 0.0), currency: currency),
-                taxAmount: TamaraAmount(amount: String(format:"%.2f", item.tax), currency: currency),
-                totalAmount: TamaraAmount(amount: String(format:"%.2f", item.total), currency: currency)
+                unitPrice: TamaraAmount(amount: item.price, currency: currency),
+                discountAmount: TamaraAmount(amount: 0.0, currency: currency),
+                taxAmount: TamaraAmount(amount: item.tax, currency: currency),
+                totalAmount: TamaraAmount(amount: item.total, currency: currency)
             ))
         }
         
@@ -130,10 +88,10 @@ struct InfoView : View {
         let consumer = TamaraConsumer(
             firstName: "Mona",
             lastName: "Lisa",
-            phoneNumber: generatePhoneNumber(),
+            phoneNumber: "502223333",
             email: "user@example.com",
-            nationalID: "1234567890",
-            dateOfBirth: "1990-04-18",
+            nationalID: "123456",
+            dateOfBirth: "2020-04-18",
             isFirstOrder: true
         )
         
@@ -157,23 +115,18 @@ struct InfoView : View {
             riskAssessment: nil
         )
         
-        
-        
-        tamaraCheckout.processCheckout(body: requestBody, checkoutComplete: { (checkoutSuccess) in
-            // Handle success case
+        tamaraCheckout.processCheckout(body: requestBody, checkoutComplete: { (checkoutUrl) in
+                
+            ///call TAMARA SDK show webview
             DispatchQueue.main.async {
                 self.appState.isLoading = false
-                guard let item = checkoutSuccess else {return}
-                self.appState.viewModel = TamaraSDKCheckoutViewModel(url: item.checkoutUrl, merchantURL: merchantUrl)
+                guard let url = checkoutUrl else {return}
+                self.appState.viewModel = TamaraSDKCheckoutSwiftUIViewModel(url: url, merchantURL: merchantUrl)
                 self.appState.currentPage = AppPages.Checkout
             }
 
-            
-            
-        }, checkoutFailed: { (checkoutFailed) in
-            // Handle failed case
-            print(checkoutFailed?.message ?? "")
-            
+        }, checkoutFailed: { (error) in
+            print(error)
             DispatchQueue.main.async {
                 self.appState.isLoading = false
                 self.appState.orderSuccessed = false

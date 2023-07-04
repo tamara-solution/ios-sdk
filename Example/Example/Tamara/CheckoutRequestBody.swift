@@ -216,9 +216,10 @@ public struct TamaraRiskAssessment: Codable {
 
 // MARK: - TamaraAmount
 public struct TamaraAmount: Codable {
-    var amount, currency: String
+    var amount: Double
+    var currency: String
     
-    public init(amount: String, currency: String) {
+    public init(amount: Double, currency: String) {
         self.amount = amount
         self.currency = currency
     }

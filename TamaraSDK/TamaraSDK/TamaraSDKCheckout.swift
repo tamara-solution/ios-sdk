@@ -9,177 +9,86 @@
 import Foundation
 import WebKit
 import UIKit
+import SwiftUI
 
-public protocol TamaraCheckoutDelegate: AnyObject {
+public protocol TamaraCheckoutDelegate: class {
+
     /// Called if the response is successful
     func onSuccessfull()
-    
+
     /// Called if the response is unsuccesful
     func onFailured()
-    
-    /// Called if the user cancel
-    func onCancel()
-    
-    /// Called if the user get notification link
-    func onNotification()
 }
 
-public class TamaraSDKCheckout: UIViewController {
-    private lazy var webView: WKWebView = {
-        let webView = WKWebView()
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        webView.navigationDelegate = self
-        webView.scrollView.showsVerticalScrollIndicator = false
-        webView.scrollView.showsHorizontalScrollIndicator = false
-        return webView
-    }()
+
+class TamaraSDKCheckout: UIViewController {
+    private var webView: WKWebView!
+    private var url: String!
+    public var delegate: TamaraCheckoutDelegate!
     
-    private var navigationBarIsHidden: Bool = false
-    private var isLoaded: Bool = false
+    private var successUrl: String!
+    private var failedUrl: String!
     
-    private var urlString: String = ""
-    private var merchantURL: TamaraMerchantURL?
-    private var autoHideNavigationBar: Bool = false
-    
-    public weak var delegate: TamaraCheckoutDelegate?
-    
-    public init(
-        url: String,
-        merchantURL: TamaraMerchantURL?,
-        autoHideNavigationBar: Bool = false
-    ) {
+    public init(url: String,merchantURL: TamaraMerchantURL) {
+        self.url =  url
+        self.successUrl = merchantURL.success
+        self.failedUrl = merchantURL.failure
         super.init(nibName: nil, bundle: nil)
-        
-        self.urlString = url
-        self.merchantURL = merchantURL
-        self.autoHideNavigationBar = autoHideNavigationBar
     }
     
+    
     /// Returns an object initialized from data in a given unarchiver.
-    public required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
+        successUrl = ""
+        failedUrl = ""
         super.init(coder: aDecoder)
     }
     
+    /// Creates the view that the controller manages.
+    public override func loadView() {
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        view = webView
+    }
+
     /// Called after the controller's view is loaded into memory.
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setupViews()
-        self.setupConstraints()
-        
-        if !self.urlString.isEmpty, let url = URL(string: self.urlString) {
-            let request = URLRequest(url: url)
-            self.webView.load(request)
-        }
+
+        guard let authUrl = url else { return }
+        let myURL = URL(string: authUrl)
+        let myRequest = URLRequest(url: myURL!)
+        webView.navigationDelegate = self
+        webView.load(myRequest)
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if self.autoHideNavigationBar, let nav = self.navigationController {
-            self.navigationBarIsHidden = nav.navigationBar.isHidden
-            nav.navigationBar.isHidden = true
-        }
-    }
     
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if self.autoHideNavigationBar, let nav = self.navigationController {
-            nav.navigationBar.isHidden = self.navigationBarIsHidden
-        }
-    }
-    
-    // MARK: - Private methods
-    
-    private func setupViews() {
-        if self.autoHideNavigationBar {
-            self.setupViewInsets()
-        }
-        
-        self.view.addSubview(self.webView)
-    }
-    
-    private func setupConstraints() {
-        self.webView.topAnchor.constraint(
-            equalTo: self.view.safeAreaLayoutGuide.topAnchor
-        ).isActive = true
-        self.webView.bottomAnchor.constraint(
-            equalTo: self.view.safeAreaLayoutGuide.bottomAnchor
-        ).isActive = true
-        self.webView.leadingAnchor.constraint(
-            equalTo: self.view.safeAreaLayoutGuide.leadingAnchor
-        ).isActive = true
-        self.webView.trailingAnchor.constraint(
-            equalTo: self.view.safeAreaLayoutGuide.trailingAnchor
-        ).isActive = true
-    }
-    
-    private func setupViewInsets() {
-        var statusBarHeight: CGFloat = 0
-        
-        if #available(iOS 13.0, *) {
-            let scene = UIApplication.shared.connectedScenes.first {
-                $0 is UIWindowScene && $0.activationState == .foregroundActive
+    ///
+    private func shouldDismiss(absoluteUrl: URL) {
+        if absoluteUrl.absoluteString.contains(self.successUrl) {
+            // success url, dismissing the page with the payment token
+            self.dismiss(animated: true) {
+                self.delegate?.onSuccessfull()
             }
-            if let windowScene = scene as? UIWindowScene, windowScene.statusBarManager?.isStatusBarHidden == false {
-                statusBarHeight = windowScene.statusBarManager?.statusBarFrame.height ?? 0
+        } else {
+            // fail url, dismissing the page
+            self.dismiss(animated: true) {
+                self.delegate?.onFailured()
             }
-        }
-        else {
-            if !UIApplication.shared.isStatusBarHidden {
-                statusBarHeight = UIApplication.shared.statusBarFrame.height
-            }
-        }
-        
-        self.additionalSafeAreaInsets = .init(
-            top: statusBarHeight,
-            left: 0,
-            bottom: 0,
-            right: 0
-        )
-    }
-    
-    private func notifyDelegate(_ url: URL?) {
-        guard
-            let urlString = url?.absoluteString,
-            !urlString.isEmpty,
-            let merchantURL = self.merchantURL
-        else { return }
-        
-        if (urlString.contains(merchantURL.success)) {
-            self.delegate?.onSuccessfull()
-        }
-        else if (urlString.contains(merchantURL.failure)) {
-            self.delegate?.onFailured()
-        }
-        else if (urlString.contains(merchantURL.cancel)) {
-            self.delegate?.onCancel()
-        }
-        else if (urlString.contains(merchantURL.notification)) {
-            self.delegate?.onNotification()
         }
     }
 }
 
 extension TamaraSDKCheckout: WKNavigationDelegate {
-    public func webView(
-        _ webView: WKWebView,
-        decidePolicyFor navigationAction: WKNavigationAction,
-        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
-    ) {
-        decisionHandler(.allow)
-        self.notifyDelegate(navigationAction.request.url)
-    }
     
-    @available(iOS 13.0, *)
-    public func webView(
-        _ webView: WKWebView,
-        decidePolicyFor navigationAction: WKNavigationAction,
-        preferences: WKWebpagePreferences,
-        decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void
-    ) {
-        decisionHandler(.allow, preferences)
-        self.notifyDelegate(navigationAction.request.url)
+    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        shouldDismiss(absoluteUrl: webView.url!)
+    }
+
+    /// Called when a web view receives a server redirect.
+    public func webView(_ webView: WKWebView,
+                        didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        // stop the redirection
+        shouldDismiss(absoluteUrl: webView.url!)
     }
 }

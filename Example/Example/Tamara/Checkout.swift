@@ -26,7 +26,7 @@ public class TamaraCheckout {
         self.token = token
     }
     
-    public func authenticate(successHandler: @escaping (_ token: String) -> Void, failHandler: @escaping (_ error: Error?) -> Void) {
+    public func authenticate(successHandler: @escaping (_ token: String) -> Void, failHandler: @escaping (_ error: Error) -> Void) {
         let token = UserDefaults.standard.string(forKey: "token")
         if token != nil {
             successHandler(token!)
@@ -49,7 +49,7 @@ public class TamaraCheckout {
                     failHandler(NSError(domain: "Empty authentication response", code: 500, userInfo: nil))
                     return
                 }
-                
+
                 let decoder = JSONDecoder()
                 do {
                     let response = try decoder.decode(TamaraAuthenticateResponse.self, from: data)
@@ -67,54 +67,51 @@ public class TamaraCheckout {
         }
     }
     
-    public func processCheckout(body: TamaraCheckoutRequestBody, checkoutComplete: @escaping (_ checkoutUrl: TamaraCheckoutSuccess?) -> Void, checkoutFailed: @escaping (_ error: TamaraCheckoutError?) -> Void) {
+    public func processCheckout(body: TamaraCheckoutRequestBody, checkoutComplete: @escaping (_ checkoutUrl: String?) -> Void, checkoutFailed: @escaping (_ error: Error) -> Void) {
         if self.token != nil {
             self.doCheckout(token: self.token!, body: body, checkoutComplete: checkoutComplete, checkoutFailed: checkoutFailed)
         } else {
             self.authenticate(successHandler: { token in
                 self.doCheckout(token: token, body: body, checkoutComplete: checkoutComplete, checkoutFailed: checkoutFailed)
-            }, failHandler: {_ in })
+            }, failHandler: checkoutFailed)
         }
         
     }
     
-    private func doCheckout(token: String, body: TamaraCheckoutRequestBody, checkoutComplete: @escaping (_ objectSucess: TamaraCheckoutSuccess) -> Void, checkoutFailed: @escaping (_ error: TamaraCheckoutError) -> Void) {
-        if let data = try? self.encoder.encode(body) {
-            print(String(decoding: data, as: UTF8.self))
-            guard let url = URL(string: "\(baseUrl)/checkout") else {
-                return
-            }
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-            request.httpBody = data
-            URLSession.shared.dataTask(with: request) { (data, response, error) in
-                guard error == nil else { print(error!.localizedDescription); return }
-                
-                if let httpResponse = response as? HTTPURLResponse {
-                    // Success with checkout_url
-                    if httpResponse.statusCode == 200 {
-                        try? checkoutComplete(TamaraCheckoutSuccess.decode(from: data ?? Data()))
-                    } else { // Failed due to invalid payload
-                        try? checkoutFailed(TamaraCheckoutError.decode(from: data ?? Data()))
-                    }
+    private func doCheckout(token: String, body: TamaraCheckoutRequestBody, checkoutComplete: @escaping (_ checkoutUrl: String) -> Void, checkoutFailed: @escaping (_ error: Error) -> Void) {
+        do {
+            let data = try self.encoder.encode(body)
+                print(String(decoding: data, as: UTF8.self))
+                guard let url = URL(string: "\(baseUrl)/checkout") else {
+                    return
                 }
-                
-            }.resume()
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+                request.httpBody = data
+                URLSession.shared.dataTask(with: request) { (data, response, error) in
+                    guard error == nil else { print(error!.localizedDescription); return }
+                    guard let data = data else {
+                        checkoutFailed(NSError(domain: "Empty checkout response", code: 500, userInfo: nil))
+                        return
+                    }
+
+                    let decoder = JSONDecoder()
+                    do {
+                        let response = try decoder.decode(TamaraCheckoutResponse.self, from: data)
+                        print(response)
+                        checkoutComplete(response.checkoutUrl)
+                    } catch {
+                        checkoutFailed(error)
+                        return
+                    }
+                }.resume()
+        } catch {
+            checkoutFailed(error)
+            return
         }
     }
 }
 
 
-extension Encodable {
-    func encode(with encoder: JSONEncoder = JSONEncoder()) throws -> Data {
-        return try encoder.encode(self)
-    }
-}
-
-extension Decodable {
-    static func decode(with decoder: JSONDecoder = JSONDecoder(), from data: Data) throws -> Self {
-        return try decoder.decode(Self.self, from: data)
-    }
-}

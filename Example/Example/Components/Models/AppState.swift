@@ -10,6 +10,7 @@ import Foundation
 import TamaraSDK
 
 enum AppPages: Hashable {
+    case Main
     case Cart
     case Info
     case Checkout
@@ -17,7 +18,7 @@ enum AppPages: Hashable {
 }
 
 final class AppState: ObservableObject {
-    @Published var currentPage : AppPages? = .Cart
+    @Published var currentPage : AppPages? = .Main
     @Published var url: String?
     @Published var isLoading: Bool = false
     @Published var orderSuccessed: Bool = false
@@ -37,7 +38,7 @@ final class AppState: ObservableObject {
         region: "As Sulimaniyah",
         city: "Riyadh",
         countryCode: countryCode,
-        phoneNumber: generatePhoneNumber()
+        phoneNumber: "502223333"
     )
     @Published var billingAddress = CustomerAddress(
         firstName: "Mona",
@@ -47,8 +48,8 @@ final class AppState: ObservableObject {
         region: "As Sulimaniyah",
         city: "Riyadh",
         countryCode: countryCode,
-        phoneNumber: generatePhoneNumber()
+        phoneNumber: "502223333"
     )
     
-    @Published var viewModel: TamaraSDKCheckoutViewModel!
+    @Published var viewModel: TamaraSDKCheckoutSwiftUIViewModel!
 }
