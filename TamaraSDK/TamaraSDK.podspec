@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://tamara.co"
   s.license          = { :type => "MIT", :file => "LICENSE" }
   s.author           = { "Tamara" => "contact@tamara.co" }
-  s.source           = { :git => "https://github.com/tamara-solution/ios-sdk.git" }
+  s.source           = { :git => "https://github.com/tamara-solution/ios-sdk.git", :tag => s.version.to_s }
   s.source_files = "TamaraSDK/**/*"
   s.dependency 'Moya'
   s.platform = :ios, "11.0"
