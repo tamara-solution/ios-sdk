@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.exclude_files = "TamaraSDK/TamaraSDK/*.plist"
   s.platform = :ios, "11.0"
   s.swift_version = "5.0"
+  s.readme = "https://github.com/tamara-solution/ios-sdk/blob/master/README.md"
 end
