@@ -15,6 +15,7 @@ enum AppPages: Hashable {
     case Info
     case Checkout
     case Success
+    case Test
 }
 
 final class AppState: ObservableObject {

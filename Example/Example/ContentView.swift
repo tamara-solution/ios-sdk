@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import TamaraSDK
 
 struct ContentView : View {
     @EnvironmentObject var appState: AppState
@@ -28,6 +29,8 @@ struct ContentView : View {
                     CheckoutWebView()
                 } else if self.appState.currentPage == AppPages.Success {
                     SuccessView()
+                } else if self.appState.currentPage == AppPages.Test {
+                    MyViewControllerRepresentation()
                 }
             }
         }

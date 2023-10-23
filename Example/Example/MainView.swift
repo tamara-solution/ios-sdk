@@ -40,9 +40,9 @@ struct MainView: View {
                 
                 DispatchQueue.main.async {
                     self.appState.isLoading = false
-                    let url = "https://checkout-sandbox.tamara.co/checkout/25a5229c-99a6-47af-b9e3-d475e8557fd0?locale=en_US&orderId=078d049c-1614-4182-b9d1-8b021c9b1b93&show_item_images=with_item_images_shown&pay_the_difference_disclaimer=blue2&id_match_another_user=changing_phone&pay_in_full_value=full_values"
-                    self.appState.viewModel = TamaraSDKCheckoutSwiftUIViewModel(url: url, merchantURL: merchantUrl)
-                    self.appState.currentPage = AppPages.Checkout
+                    let url = "https://checkout-sandbox.tamara.co/checkout/22464256-5aa0-4497-9121-165a10ea63be?locale=en_US&orderId=c66700d8-e723-48db-9f69-f0e73ff9b4e6&show_item_images=with_item_images_shown&pay_the_difference_disclaimer=blue2&pay_in_full_value=value_secure"
+//                    self.appState.viewModel = TamaraSDKCheckoutSwiftUIViewModel(url: url, merchantURL: merchantUrl)
+                    self.appState.currentPage = AppPages.Test
                 }
 //                self.appState.currentPage = .Cart
             })

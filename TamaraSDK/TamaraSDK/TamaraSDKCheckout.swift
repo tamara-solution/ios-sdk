@@ -11,28 +11,33 @@ import WebKit
 import UIKit
 import SwiftUI
 
-public protocol TamaraCheckoutDelegate: class {
+public protocol TamaraCheckoutDelegate {
 
     /// Called if the response is successful
     func onSuccessfull()
 
     /// Called if the response is unsuccesful
     func onFailured()
+    
+    /// Called if the response is cancel
+    func onCancel()
 }
 
-
-class TamaraSDKCheckout: UIViewController {
+@available(iOS 13.0.0, *)
+public class TamaraSDKCheckout: UIViewController {
     private var webView: WKWebView!
     private var url: String!
     public var delegate: TamaraCheckoutDelegate!
     
     private var successUrl: String!
     private var failedUrl: String!
+    private var cancelUrl: String!
     
     public init(url: String,merchantURL: TamaraMerchantURL) {
         self.url =  url
         self.successUrl = merchantURL.success
         self.failedUrl = merchantURL.failure
+        self.cancelUrl = merchantURL.cancel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,6 +46,7 @@ class TamaraSDKCheckout: UIViewController {
     required public init?(coder aDecoder: NSCoder) {
         successUrl = ""
         failedUrl = ""
+        cancelUrl = ""
         super.init(coder: aDecoder)
     }
     
@@ -62,8 +68,6 @@ class TamaraSDKCheckout: UIViewController {
         webView.load(myRequest)
     }
     
-    
-    ///
     private func shouldDismiss(absoluteUrl: URL) {
         if absoluteUrl.absoluteString.contains(self.successUrl) {
             // success url, dismissing the page with the payment token
@@ -79,16 +83,31 @@ class TamaraSDKCheckout: UIViewController {
     }
 }
 
+@available(iOS 13.0.0, *)
 extension TamaraSDKCheckout: WKNavigationDelegate {
-    
-    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        shouldDismiss(absoluteUrl: webView.url!)
+    // Called when an error occurs during navigation
+    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        self.delegate?.onFailured()
     }
+    
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, preferences: WKWebpagePreferences, decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {
+        guard let url = navigationAction.request.url else {
+            return
+        }
+        
+        if url.absoluteString.contains(self.successUrl) {
+            self.delegate?.onSuccessfull()
+        }
+        
+        if url.absoluteString.contains(self.failedUrl) {
+            self.delegate?.onFailured()
+        }
+        
+        if url.absoluteString.contains(self.cancelUrl) {
+            self.delegate?.onCancel()
+        }
 
-    /// Called when a web view receives a server redirect.
-    public func webView(_ webView: WKWebView,
-                        didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-        // stop the redirection
-        shouldDismiss(absoluteUrl: webView.url!)
+        decisionHandler(.allow, preferences)
     }
 }
+
