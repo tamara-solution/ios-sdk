@@ -186,6 +186,18 @@ public extension TamaraSDKPayment {
         self.order?.orderReferenceId = orderReferenceId
         self.order?.description = description
     }
+
+    /**
+    * Set Instalments
+    * @param instalments
+    */
+    func setInstalments(instalments: Int) {
+        do {
+            try validateStateForAddingData()
+            self.order?.instalments = instalments
+        } catch {
+        }
+    }
     
     /**
      * Set Payment Type

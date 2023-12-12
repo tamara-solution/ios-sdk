@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Order: Codable {
     var billingAddress: Address? = nil
     var consumer: Consumer? = nil
@@ -26,7 +25,8 @@ struct Order: Codable {
     var totalAmount: Amount? = nil
     var platform: String? = nil
     var isMobile: Bool? = nil
-    
+    var instalments: Int? = nil
+
     enum CodingKeys: String, CodingKey {
         case billingAddress = "billing_address"
         case consumer
@@ -44,8 +44,9 @@ struct Order: Codable {
         case totalAmount = "total_amount"
         case platform
         case isMobile = "is_mobile"
+        case instalments
     }
-    
+
     public init(
         billingAddress: Address,
         consumer: Consumer,
@@ -62,7 +63,8 @@ struct Order: Codable {
         taxAmount: Amount,
         totalAmount: Amount,
         platform: String,
-        isMobile: Bool
+        isMobile: Bool,
+        instalments: Int
     ) {
         self.billingAddress = billingAddress
         self.consumer = consumer
@@ -80,14 +82,15 @@ struct Order: Codable {
         self.totalAmount = totalAmount
         self.platform = platform
         self.isMobile = isMobile
+        self.instalments = instalments
     }
-    
+
     public init(
         countryCode: String
     ) {
         self.countryCode = countryCode
     }
-    
+
     func convertToJson() -> String {
         let jsonData = try! JSONEncoder().encode(self)
         return String(data: jsonData, encoding: .utf8)!
