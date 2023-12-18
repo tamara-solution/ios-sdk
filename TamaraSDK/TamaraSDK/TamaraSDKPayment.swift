@@ -171,6 +171,7 @@ public extension TamaraSDKPayment {
         self.notificationToken = notificationToken
         self.isSandbox = isSandbox
         self.state = STATE_INITIALIZED
+        TamaraSDKPayment.shared = self
     }
     
     /**
@@ -198,7 +199,70 @@ public extension TamaraSDKPayment {
         } catch {
         }
     }
-    
+
+    /**
+    * Set Locale
+    * @param locale
+    */
+    func setLocale(locale: String) {
+        do {
+            try validateStateForAddingData()
+            self.order?.locale = locale
+        } catch {
+        }
+    }
+
+
+    /**
+    * Set orderNumber
+    * @param orderNumber
+    */
+    func setOrderNumber(orderNumber: String) {
+        do {
+            try validateStateForAddingData()
+            self.order?.orderNumber = orderNumber
+        } catch {
+        }
+    }
+
+    /**
+    * Set expiresInMinutes
+    * @param expiresInMinutes
+    */
+    func setExpiresInMinutes(expiresInMinutes: Int) {
+        do {
+            try validateStateForAddingData()
+            self.order?.expiresInMinutes = expiresInMinutes
+        } catch {
+        }
+    }
+
+    /**
+    * Set riskAssessment
+    * @param jsonData
+    */
+    func setRiskAssessment(jsonData: String) {
+        do {
+            try validateStateForAddingData()
+            let riskAssessment = RiskAssessment(jsonData: Data(jsonData.utf8))
+            self.order?.riskAssessment = riskAssessment
+        } catch {
+        }
+    }
+
+    /**
+    * Set AdditionalData
+    * @param jsonData
+    */
+    func setAdditionalData(jsonData: String) {
+        do {
+            try validateStateForAddingData()
+            let additionalData = AdditionalData(jsonData: Data(jsonData.utf8))
+            self.order?.additionalData = additionalData
+        } catch {
+        }
+    }
+
     /**
      * Set Payment Type
      * @param paymentType

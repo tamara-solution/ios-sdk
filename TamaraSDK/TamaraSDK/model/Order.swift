@@ -26,6 +26,10 @@ struct Order: Codable {
     var platform: String? = nil
     var isMobile: Bool? = nil
     var instalments: Int? = nil
+    var orderNumber: String? = nil
+    var expiresInMinutes: Int? = nil
+    var riskAssessment: RiskAssessment? = nil
+    var additionalData: AdditionalData? = nil
 
     enum CodingKeys: String, CodingKey {
         case billingAddress = "billing_address"
@@ -45,6 +49,10 @@ struct Order: Codable {
         case platform
         case isMobile = "is_mobile"
         case instalments
+        case orderNumber = "order_number"
+        case expiresInMinutes = "expires_in_minutes"
+        case riskAssessment = "risk_assessment"
+        case additionalData = "additional_data"
     }
 
     public init(
@@ -64,7 +72,11 @@ struct Order: Codable {
         totalAmount: Amount,
         platform: String,
         isMobile: Bool,
-        instalments: Int
+        instalments: Int,
+        orderNumber: String,
+        expiresInMinutes: Int,
+        riskAssessment: RiskAssessment,
+        additionalData: AdditionalData
     ) {
         self.billingAddress = billingAddress
         self.consumer = consumer
@@ -83,6 +95,10 @@ struct Order: Codable {
         self.platform = platform
         self.isMobile = isMobile
         self.instalments = instalments
+        self.orderNumber = orderNumber
+        self.expiresInMinutes = expiresInMinutes
+        self.riskAssessment = riskAssessment
+        self.additionalData = additionalData
     }
 
     public init(
