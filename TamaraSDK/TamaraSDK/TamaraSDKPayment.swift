@@ -257,8 +257,19 @@ public extension TamaraSDKPayment {
     func setAdditionalData(jsonData: String) {
         do {
             try validateStateForAddingData()
-            let additionalData = AdditionalData(jsonData: Data(jsonData.utf8))
-            self.order?.additionalData = additionalData
+            self.order?.updateAdditionalData(from: jsonData)
+        } catch {
+        }
+    }
+
+    /**
+    * Add Custom Fields AdditionalData
+    * @param jsonData
+    */
+    func addCustomFieldsAdditionalData(jsonData: String) {
+        do {
+            try validateStateForAddingData()
+            self.order?.updateAdditionalData(from: jsonData)
         } catch {
         }
     }
