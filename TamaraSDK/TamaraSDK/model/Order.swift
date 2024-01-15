@@ -29,7 +29,7 @@ struct Order: Codable {
     var orderNumber: String? = nil
     var expiresInMinutes: Int? = nil
     var riskAssessment: RiskAssessment? = nil
-    var additionalData: AdditionalData? = nil
+    var additionalData: Dictionary<String, Any> = [:]
 
     enum CodingKeys: String, CodingKey {
         case billingAddress = "billing_address"
@@ -76,7 +76,7 @@ struct Order: Codable {
         orderNumber: String,
         expiresInMinutes: Int,
         riskAssessment: RiskAssessment,
-        additionalData: AdditionalData
+        additionalData: Dictionary<String, Any>?
     ) {
         self.billingAddress = billingAddress
         self.consumer = consumer
@@ -98,7 +98,7 @@ struct Order: Codable {
         self.orderNumber = orderNumber
         self.expiresInMinutes = expiresInMinutes
         self.riskAssessment = riskAssessment
-        self.additionalData = additionalData
+        self.additionalData = additionalData ?? [:]
     }
 
     public init(
@@ -106,9 +106,77 @@ struct Order: Codable {
     ) {
         self.countryCode = countryCode
     }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        billingAddress = try container.decodeIfPresent(Address.self, forKey: .billingAddress)
+        consumer = try container.decodeIfPresent(Consumer.self, forKey: .consumer)
+        countryCode = try container.decodeIfPresent(String.self, forKey: .countryCode) ?? "SA"
+        description = try container.decodeIfPresent(String.self, forKey: .description) ?? "This is description"
+        discount = try container.decodeIfPresent(Discount.self, forKey: .discount)
+        items = try container.decodeIfPresent([Item].self, forKey: .items) ?? []
+        locale = try container.decodeIfPresent(String.self, forKey: .locale) ?? "en-US"
+        merchantUrl = try container.decodeIfPresent(MerchantUrl.self, forKey: .merchantUrl)
+        orderReferenceId = try container.decodeIfPresent(String.self, forKey: .orderReferenceId) ?? ""
+        paymentType = try container.decode(String.self, forKey: .paymentType)
+        shippingAddress = try container.decodeIfPresent(Address.self, forKey: .shippingAddress)
+        shippingAmount = try container.decodeIfPresent(Amount.self, forKey: .shippingAmount)
+        taxAmount = try container.decodeIfPresent(Amount.self, forKey: .taxAmount)
+        totalAmount = try container.decodeIfPresent(Amount.self, forKey: .totalAmount)
+        platform = try container.decodeIfPresent(String.self, forKey: .platform)
+        isMobile = try container.decodeIfPresent(Bool.self, forKey: .isMobile)
+        instalments = try container.decodeIfPresent(Int.self, forKey: .instalments)
+        orderNumber = try container.decodeIfPresent(String.self, forKey: .orderNumber)
+        expiresInMinutes = try container.decodeIfPresent(Int.self, forKey: .expiresInMinutes)
+        riskAssessment = try container.decodeIfPresent(RiskAssessment.self, forKey: .riskAssessment)
+        additionalData = try container.decode(Dictionary<String, Any>.self, forKey: .additionalData)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(billingAddress, forKey: .billingAddress)
+        try container.encode(consumer, forKey: .consumer)
+        try container.encode(countryCode, forKey: .countryCode)
+        try container.encode(description, forKey: .description)
+        try container.encode(discount, forKey: .discount)
+        try container.encode(items, forKey: .items)
+        try container.encode(locale, forKey: .locale)
+        try container.encode(merchantUrl, forKey: .merchantUrl)
+        try container.encode(orderReferenceId, forKey: .orderReferenceId)
+        try container.encode(paymentType, forKey: .paymentType)
+        try container.encode(shippingAddress, forKey: .shippingAddress)
+        try container.encode(shippingAmount, forKey: .shippingAmount)
+        try container.encode(taxAmount, forKey: .taxAmount)
+        try container.encode(totalAmount, forKey: .totalAmount)
+        try container.encode(platform, forKey: .platform)
+        try container.encode(isMobile, forKey: .isMobile)
+        try container.encode(instalments, forKey: .instalments)
+        try container.encode(orderNumber, forKey: .orderNumber)
+        try container.encode(expiresInMinutes, forKey: .expiresInMinutes)
+        try container.encode(riskAssessment, forKey: .riskAssessment)
+        try container.encode(additionalData, forKey: .additionalData)
+    }
 
     func convertToJson() -> String {
         let jsonData = try! JSONEncoder().encode(self)
         return String(data: jsonData, encoding: .utf8)!
+    }
+    
+    mutating func updateAdditionalData(from jsonString: String) {
+        guard let jsonData = jsonString.data(using: .utf8) else {
+            return
+        }
+
+        do {
+            if let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                for (fieldName, jsonElement) in json {
+                    additionalData[fieldName] = jsonElement
+                }
+            }
+        } catch {
+            print("Error parsing JSON: \(error)")
+        }
     }
 }
