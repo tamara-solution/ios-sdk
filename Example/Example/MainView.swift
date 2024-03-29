@@ -11,8 +11,12 @@ import TamaraSDK
 
 struct MainView: View {
     @EnvironmentObject var appState: AppState
+    var scriptCartPage: String = ""
+    var scriptProduct: String = ""
     
-    init() {
+    init(cartPage: Binding<[String: String]>, productPage: Binding<[String: String]>) {
+        self.scriptCartPage = cartPage.wrappedValue["script"] ?? ""
+        self.scriptProduct = productPage.wrappedValue["script"] ?? ""
         UITableView.appearance().separatorStyle = .none
     }
     
@@ -47,6 +51,28 @@ struct MainView: View {
 //                self.appState.currentPage = .Cart
             })
                 .padding(.top, 20)
+            
+            RoundedButton(label: "CartPage", buttonAction: {
+                self.appState.currentPage = .CartPage
+            })
+                .padding(.top, 20)
+            
+            if !scriptCartPage.isEmpty {
+                WebViewWrapper(html: scriptCartPage)
+                    .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .padding(.top, 20)
+            }
+            
+            RoundedButton(label: "Product", buttonAction: {
+                self.appState.currentPage = .Product
+            })
+                .padding(.top, 20)
+            
+            if !scriptProduct.isEmpty {
+                WebViewWrapper(html: scriptProduct)
+                    .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .padding(.top, 20)
+            }
         }
         .navigationBarHidden(true)
         .navigationBarItems(trailing: HStack{})
@@ -57,8 +83,8 @@ struct MainView: View {
     }
 }
 
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
+//struct MainView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainView()
+//    }
+//}

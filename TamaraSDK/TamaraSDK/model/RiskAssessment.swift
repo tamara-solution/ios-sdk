@@ -9,20 +9,29 @@
 import Foundation
 
 public struct RiskAssessment: Codable {
-    let customerAge: Int
-    let customerDob, customerGender, customerNationality: String
-    let isPremiumCustomer, isExistingCustomer, isGuestUser: Bool
-    let accountCreationDate, platformAccountCreationDate, dateOfFirstTransaction: String
-    let isCardOnFile, isCODCustomer, hasDeliveredOrder, isPhoneVerified: Bool
-    let isFraudulentCustomer: Bool
-    let totalLtv: Double
-    let totalOrderCount: Int
-    let orderAmountLast3Months: Double
-    let orderCountLast3Months: Int
-    let lastOrderDate: String
-    let lastOrderAmount: Double
-    let rewardProgramEnrolled: Bool
-    let rewardProgramPoints: Int
+    var customerAge: Int? = nil
+    var customerDob: String? = nil
+    var customerGender: String? = nil
+    var customerNationality: String? = nil
+    var isPremiumCustomer: Bool? = nil
+    var isExistingCustomer: Bool? = nil
+    var isGuestUser: Bool? = nil
+    var accountCreationDate: String? = nil
+    var platformAccountCreationDate: String? = nil
+    var dateOfFirstTransaction: String? = nil
+    var isCardOnFile: Bool? = nil
+    var isCODCustomer: Bool? = nil
+    var hasDeliveredOrder: Bool? = nil
+    var isPhoneVerified: Bool? = nil
+    var isFraudulentCustomer: Bool? = nil
+    var totalLtv: Double? = nil
+    var totalOrderCount: Int? = nil
+    var orderAmountLast3Months: Double? = nil
+    var orderCountLast3Months: Int? = nil
+    var lastOrderDate: String? = nil
+    var lastOrderAmount: Double? = nil
+    var rewardProgramEnrolled: Bool? = nil
+    var rewardProgramPoints: Int? = nil
 
     enum CodingKeys: String, CodingKey {
         case customerAge = "customer_age"

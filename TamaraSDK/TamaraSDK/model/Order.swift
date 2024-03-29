@@ -28,7 +28,7 @@ struct Order: Codable {
     var instalments: Int? = nil
     var orderNumber: String? = nil
     var expiresInMinutes: Int? = nil
-    var riskAssessment: RiskAssessment? = nil
+    var riskAssessment: Dictionary<String, Any> = [:]
     var additionalData: Dictionary<String, Any> = [:]
 
     enum CodingKeys: String, CodingKey {
@@ -75,7 +75,7 @@ struct Order: Codable {
         instalments: Int,
         orderNumber: String,
         expiresInMinutes: Int,
-        riskAssessment: RiskAssessment,
+        riskAssessment: Dictionary<String, Any>?,
         additionalData: Dictionary<String, Any>?
     ) {
         self.billingAddress = billingAddress
@@ -97,7 +97,7 @@ struct Order: Codable {
         self.instalments = instalments
         self.orderNumber = orderNumber
         self.expiresInMinutes = expiresInMinutes
-        self.riskAssessment = riskAssessment
+        self.riskAssessment = riskAssessment ?? [:]
         self.additionalData = additionalData ?? [:]
     }
 
@@ -129,7 +129,7 @@ struct Order: Codable {
         instalments = try container.decodeIfPresent(Int.self, forKey: .instalments)
         orderNumber = try container.decodeIfPresent(String.self, forKey: .orderNumber)
         expiresInMinutes = try container.decodeIfPresent(Int.self, forKey: .expiresInMinutes)
-        riskAssessment = try container.decodeIfPresent(RiskAssessment.self, forKey: .riskAssessment)
+        riskAssessment = try container.decode(Dictionary<String, Any>.self, forKey: .riskAssessment)
         additionalData = try container.decode(Dictionary<String, Any>.self, forKey: .additionalData)
     }
     
@@ -173,6 +173,22 @@ struct Order: Codable {
             if let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
                 for (fieldName, jsonElement) in json {
                     additionalData[fieldName] = jsonElement
+                }
+            }
+        } catch {
+            print("Error parsing JSON: \(error)")
+        }
+    }
+    
+    mutating func updateRiskAssessment(from jsonString: String) {
+        guard let jsonData = jsonString.data(using: .utf8) else {
+            return
+        }
+
+        do {
+            if let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                for (fieldName, jsonElement) in json {
+                    riskAssessment[fieldName] = jsonElement
                 }
             }
         } catch {

@@ -244,8 +244,7 @@ public extension TamaraSDKPayment {
     func setRiskAssessment(jsonData: String) {
         do {
             try validateStateForAddingData()
-            let riskAssessment = RiskAssessment(jsonData: Data(jsonData.utf8))
-            self.order?.riskAssessment = riskAssessment
+            self.order?.updateRiskAssessment(from: jsonData)
         } catch {
         }
     }

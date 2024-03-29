@@ -12,6 +12,7 @@ struct CartView: View {
     @EnvironmentObject var appState: AppState
     
     var body: some View {
+        
         List {
             ForEach(self.appState.cartItems.indices) { index in
                 CartItemView(item: self.$appState.cartItems[index], quantityChangedAction: self.calculateTotal)
@@ -21,7 +22,7 @@ struct CartView: View {
             }
             Text("Total: \(String(format: "%.2f", self.appState.orderTotal)) \(currency)")
             RoundedButton(label: "Next", buttonAction: {
-                self.appState.currentPage = AppPages.Info
+                self.appState.currentPage = AppPages.Custom
             })
             .padding(.top, 20)  
         }
@@ -31,6 +32,7 @@ struct CartView: View {
             self.calculateTotal()
         }
         .navigationBarTitle("Cart")
+        .navigationBarBackButtonHidden(true)
     }
     
     func calculateTotal() {

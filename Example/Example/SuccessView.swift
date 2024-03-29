@@ -23,7 +23,7 @@ struct SuccessView : View {
             }
             
             RoundedButton(label: "Go Home", buttonAction: {
-                self.appState.currentPage = .Cart
+                self.appState.currentPage = .Main
             })
                 .padding(.top, 20)
         }

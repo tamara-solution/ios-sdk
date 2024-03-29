@@ -12,7 +12,10 @@ import TamaraSDK
 enum AppPages: Hashable {
     case Main
     case Cart
+    case CartPage
     case Info
+    case Custom
+    case Product
     case Checkout
     case Success
     case Test
@@ -23,6 +26,7 @@ final class AppState: ObservableObject {
     @Published var url: String?
     @Published var isLoading: Bool = false
     @Published var orderSuccessed: Bool = false
+    @Published var riskAssessment: String = ""
 
     @Published var cartItems: [CartItem] = [
         CartItem(name: "Test Product 1", sku: "SKU-1", price: 100, tax: 0.5, quantity: 1),

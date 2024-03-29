@@ -87,7 +87,12 @@ public class TamaraSDKCheckout: UIViewController {
 extension TamaraSDKCheckout: WKNavigationDelegate {
     // Called when an error occurs during navigation
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        self.delegate?.onFailured()
+        let alertVC = UIAlertController(title: nil, message: "Something went wrong", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+        }
+        alertVC.addAction(okAction)
+        
+        self.present(alertVC, animated: true)
     }
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, preferences: WKWebpagePreferences, decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {

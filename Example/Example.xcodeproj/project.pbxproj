@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04F2AEF42AE632AD0023C90E /* TamaraSDKCheckoutRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2AEF32AE632AD0023C90E /* TamaraSDKCheckoutRepresentation.swift */; };
+		314ACA5D2BB25B5500F27916 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314ACA5C2BB25B5500F27916 /* CustomView.swift */; };
 		4A4FAA51BCC6327CF4512DE0 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F490586AC5F45A129844701 /* Pods_Example.framework */; };
 		645368EB2450A7D900ED9A3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645368EA2450A7D900ED9A3B /* AppDelegate.swift */; };
 		645368ED2450A7D900ED9A3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645368EC2450A7D900ED9A3B /* SceneDelegate.swift */; };
@@ -37,6 +38,7 @@
 		84FC9B4C2543F77F0068AF31 /* CheckoutRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B472543F77F0068AF31 /* CheckoutRequestBody.swift */; };
 		84FC9B4D2543F77F0068AF31 /* CheckoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9B482543F77F0068AF31 /* CheckoutResponse.swift */; };
 		84FC9BA5254425850068AF31 /* CheckoutWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC9BA4254425850068AF31 /* CheckoutWebView.swift */; };
+		D84637FB2B58CFAD003B0A63 /* WebViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84637FA2B58CFAD003B0A63 /* WebViewContainer.swift */; };
 		FA4BFF422A08A14C00343420 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BFF412A08A14C00343420 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,7 @@
 		04F2AEF32AE632AD0023C90E /* TamaraSDKCheckoutRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaraSDKCheckoutRepresentation.swift; sourceTree = "<group>"; };
 		0F490586AC5F45A129844701 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		287A6E3A243E7720ACA98089 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		314ACA5C2BB25B5500F27916 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		645368E72450A7D900ED9A3B /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645368EA2450A7D900ED9A3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		645368EC2450A7D900ED9A3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		84FC9B482543F77F0068AF31 /* CheckoutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutResponse.swift; sourceTree = "<group>"; };
 		84FC9BA4254425850068AF31 /* CheckoutWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutWebView.swift; sourceTree = "<group>"; };
 		BD98B44E57100AF1BE14583E /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		D84637FA2B58CFAD003B0A63 /* WebViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContainer.swift; sourceTree = "<group>"; };
 		FA4BFF412A08A14C00343420 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +192,7 @@
 				645368F82450A7D900ED9A3B /* Info.plist */,
 				645368F22450A7D900ED9A3B /* Preview Content */,
 				04F2AEF32AE632AD0023C90E /* TamaraSDKCheckoutRepresentation.swift */,
+				314ACA5C2BB25B5500F27916 /* CustomView.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				64F9A85F2452AD61003302AE /* LabelTextView.swift */,
 				64F9A869245345EE003302AE /* ActivityIndicator.swift */,
 				64CA76A824541CDE0056B249 /* LoadingView.swift */,
+				D84637FA2B58CFAD003B0A63 /* WebViewContainer.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -464,9 +470,11 @@
 				645368ED2450A7D900ED9A3B /* SceneDelegate.swift in Sources */,
 				84FC9B4C2543F77F0068AF31 /* CheckoutRequestBody.swift in Sources */,
 				64CA76AE24549DAA0056B249 /* InfoView.swift in Sources */,
+				D84637FB2B58CFAD003B0A63 /* WebViewContainer.swift in Sources */,
 				64F9A8602452AD61003302AE /* LabelTextView.swift in Sources */,
 				645368EF2450A7D900ED9A3B /* ContentView.swift in Sources */,
 				64F9A85A2452ACBF003302AE /* RoundedButton.swift in Sources */,
+				314ACA5D2BB25B5500F27916 /* CustomView.swift in Sources */,
 				64F9A8582452AC7F003302AE /* CartItem.swift in Sources */,
 				6467E7DC246260FD00099EC1 /* CustomerAddress.swift in Sources */,
 				84FC9B4D2543F77F0068AF31 /* CheckoutResponse.swift in Sources */,
@@ -643,7 +651,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
-				DEVELOPMENT_TEAM = DRM22J5FX9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -655,7 +663,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = asia.alphaletter.notification;
+				PRODUCT_BUNDLE_IDENTIFIER = asia.alphaletter.notification1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -672,7 +680,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
-				DEVELOPMENT_TEAM = DRM22J5FX9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -684,7 +692,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = asia.alphaletter.notification;
+				PRODUCT_BUNDLE_IDENTIFIER = asia.alphaletter.notification1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
