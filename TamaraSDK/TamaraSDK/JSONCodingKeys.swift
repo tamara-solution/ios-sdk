@@ -30,10 +30,10 @@ extension KeyedDecodingContainer {
         var dictionary = [String: Any]()
         
         for key in allKeys {
-            if let boolValue = try? decode(Bool.self, forKey: key) {
-                dictionary[key.stringValue] = boolValue
-            } else if let intValue = try? decode(Int.self, forKey: key) {
+            if let intValue = try? decode(Int.self, forKey: key) {
                 dictionary[key.stringValue] = intValue
+            } else if let boolValue = try? decode(Bool.self, forKey: key) {
+                dictionary[key.stringValue] = boolValue
             } else if let stringValue = try? decode(String.self, forKey: key) {
                 dictionary[key.stringValue] = stringValue
             } else if let doubleValue = try? decode(Double.self, forKey: key) {
@@ -57,9 +57,9 @@ extension UnkeyedDecodingContainer {
         var array: [Any] = []
         
         while isAtEnd == false {
-            if let value = try? decode(Bool.self) {
+            if let value = try? decode(Int.self) {
                 array.append(value)
-            } else if let value = try? decode(Int.self) {
+            } else if let value = try? decode(Bool.self) {
                 array.append(value)
             } else if let value = try? decode(String.self) {
                 array.append(value)
@@ -95,8 +95,13 @@ extension KeyedEncodingContainerProtocol where Key == JSONCodingKeys {
         for (key, value) in value {
             let key = JSONCodingKeys(stringValue: key)
             switch value {
-            case let value as Bool:
-                try encode(value, forKey: key)
+            case is Bool:
+                let typeValue = type(of: value)
+                if typeValue == Bool.self || "\(typeValue)" == "__NSCFBoolean" {
+                    try encode(value as! Bool, forKey: key)
+                } else {
+                    try encode(value as! Int, forKey: key)
+                }
             case let value as Int:
                 try encode(value, forKey: key)
             case let value as String:
@@ -136,8 +141,13 @@ extension UnkeyedEncodingContainer {
     mutating func encode(_ value: [Any]) throws {
         for (index, value) in value.enumerated() {
             switch value {
-            case let value as Bool:
-                try encode(value)
+            case is Bool:
+                let typeValue = type(of: value)
+                if typeValue == Bool.self || "\(typeValue)" == "__NSCFBoolean" {
+                    try encode(value as! Bool)
+                } else {
+                    try encode(value as! Int)
+                }
             case let value as Int:
                 try encode(value)
             case let value as String:

@@ -37,32 +37,10 @@ struct InfoView : View {
         tamara.createOrder(orderReferenceId: "A352BB0A59044C77928A7551A1EA566B", description: "String")
         tamara.setInstalments(instalments: 1)
         tamara.setLocale(locale: "en-US")
-        let json = "{\n" +
-        " \"customer_age\": 22,\n" +
-        " \"customer_dob\": \"31-01-2000\",\n" +
-        " \"customer_gender\": \"Male\", \n" +
-        " \"customer_nationality\": \"SA\", \n" +
-        " \"is_premium_customer\": true, \n" +
-        " \"is_existing_customer\": true, \n" +
-        " \"is_guest_user\": true, \n" +
-        " \"account_creation_date\": \"31-01-2019\", \n" +
-        " \"platform_account_creation_date\": \"string\", \n" +
-        " \"date_of_first_transaction\": \"31-01-2019\", \n" +
-        " \"is_card_on_file\": true, \n" +
-        " \"is_COD_customer\": true, \n" +
-        " \"has_delivered_order\": true, \n" +
-        " \"is_phone_verified\": true, \n" +
-        " \"is_fraudulent_customer\": true, \n" +
-        " \"total_ltv\": 501.5, \n" +
-        " \"total_order_count\": 12, \n" +
-        " \"order_amount_last3months\": 301.5, \n" +
-        " \"order_count_last3months\": 2, \n" +
-        " \"last_order_date\": \"31-01-2021\", \n" +
-        " \"last_order_amount\": 301.5, \n" +
-        " \"reward_program_enrolled\": true, \n" +
-        " \"reward_program_points\": 300 \n" +
-        "}"
-        tamara.setRiskAssessment(jsonData: self.$appState.riskAssessment.wrappedValue)
+        let riskValidate = tamara.setRiskAssessment(jsonData: self.$appState.riskAssessment.wrappedValue)
+        if (!riskValidate) {
+            //check again json
+        }
         tamara.setPaymentType(paymentType: "PAY_BY_INSTALMENTS")
         tamara.setCustomerInfo(firstName: "Mona", lastName: "Lisa", phoneNumber: "502223333", email: "user@gmail.com")
         

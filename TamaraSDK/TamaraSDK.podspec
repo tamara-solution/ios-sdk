@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "TamaraSDK"
-  s.version          = "1.0.11"
+  s.version          = "1.0.12"
   s.summary       = "SDK for tamara.co"
   s.description      = "iOS sdk for tamara.co"
   s.homepage         = "https://tamara.co"

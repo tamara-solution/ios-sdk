@@ -21,6 +21,17 @@ extension PaymentVC {
         })
     }
     
+    func checkPaymentOptions(paymentOptions: PaymentOptions?, completion: @escaping (Result<PaymentOptionsResponse, AppError>) -> ()) {
+        viewModel.checkPaymentOptions(paymentOptions: paymentOptions) { result in
+            switch result {
+            case .success(let response):
+                completion(.success(response))
+            case .failure(let error):
+                completion(.failure(AppError.errorMessage(message: error.localizedDescription)))
+            }
+        }
+    }
+    
     func authoriseOrder(orderId: String, completion: @escaping (Result<AuthoriseOrder, AppError>) -> ()) {
         viewModel.authoriseOrder(orderId: orderId) { result in
             switch result {

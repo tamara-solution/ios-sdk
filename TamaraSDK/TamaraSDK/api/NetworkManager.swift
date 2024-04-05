@@ -11,6 +11,7 @@ import Moya
 protocol Networkable {
     var provider: MoyaProvider<TamaraApi> { get }
     func createOrder(order: Order?, completion: @escaping (Result<CheckoutSession, AppError>) -> ())
+    func checkPaymentOptions(paymentOptions: PaymentOptions?, completion: @escaping (Result<PaymentOptionsResponse, AppError>) -> ())
     func fetchOrderDetail(orderId: String, completion: @escaping (Result<OrderDetail, AppError>) -> ())
     func authoriseOrder(orderId: String, completion: @escaping (Result<AuthoriseOrder, AppError>) -> ())
     func refunds(orderId: String, paymentRefund: PaymentRefund, completion: @escaping (Result<RefundsResponse, AppError>) -> ())
@@ -24,6 +25,10 @@ class NetworkManager: Networkable {
 
     func createOrder(order: Order?, completion: @escaping (Result<CheckoutSession, AppError>) -> ()) {
         request(target: .createOrder(order: order), completion: completion)
+    }
+    
+    func checkPaymentOptions(paymentOptions: PaymentOptions?, completion: @escaping (Result<PaymentOptionsResponse, AppError>) -> ()) {
+        request(target: .checkPaymentOptions(paymentOptions: paymentOptions), completion: completion)
     }
     
     func fetchOrderDetail(orderId: String, completion: @escaping (Result<OrderDetail, AppError>) -> ()) {

@@ -16,7 +16,7 @@ public class TamaraSDKPayment {
     private let STATE_BEGIN = 2
     private let STATE_END = 3
     var token: String = ""
-    var apiUrl: String = "http://api.tamara.co"
+    var apiUrl: String = "https://api.tamara.co"
     private var pushUrl: String = ""
     private var publishKey: String = ""
     private var notificationToken: String = ""
@@ -112,6 +112,30 @@ public class TamaraSDKPayment {
             }
         } else {
             error += "Data cancel is required"
+        }
+        
+        if (!error.isEmpty) {
+            throw NSError(domain: "tamara", code: 1, userInfo: [NSLocalizedDescriptionKey: error])
+        }
+        return true
+    }
+    
+    func validatePaymentOptions(paymentOptions: PaymentOptions?) throws-> Bool
+    {
+        var error = ""
+        if (paymentOptions != nil) {
+            if(paymentOptions?.country == nil){
+                error += "country is required"
+            }
+            
+            if(paymentOptions?.orderValue == nil || paymentOptions?.orderValue?.amount == nil) {
+                if (!error.isEmpty) {
+                    error += "\n"
+                }
+                error += "OrderValue is required"
+            }
+        } else {
+            error += "Data is required"
         }
         
         if (!error.isEmpty) {
@@ -241,11 +265,12 @@ public extension TamaraSDKPayment {
     * Set riskAssessment
     * @param jsonData
     */
-    func setRiskAssessment(jsonData: String) {
+    func setRiskAssessment(jsonData: String)-> Bool {
         do {
             try validateStateForAddingData()
-            self.order?.updateRiskAssessment(from: jsonData)
+            return self.order?.updateRiskAssessment(from: jsonData) ?? false
         } catch {
+            return false
         }
     }
 
@@ -577,4 +602,26 @@ public extension TamaraSDKPayment {
            }
        }
    }
+    
+    func checkPaymentOptions(jsonData: String, completion: @escaping (Result<PaymentOptionsResponse, AppError>) -> ()) {
+        do {
+            let data = PaymentOptions(jsonData: Data(jsonData.utf8))
+            let validateResult = try self.validatePaymentOptions(paymentOptions: data)
+            if (validateResult) {
+                PaymentVC.shared.checkPaymentOptions(paymentOptions: data) { result in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success(let response):
+                            completion(.success(response))
+                        case .failure(let error):
+                            completion(.failure(AppError.errorMessage(message: error.localizedDescription)))
+                        }
+                    }
+                    
+                }
+            }
+        } catch {
+            completion(.failure(AppError.errorMessage(message: error.localizedDescription)))
+        }
+    }
 }

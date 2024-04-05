@@ -11,6 +11,7 @@ import Moya
 enum TamaraApi {
     case orderDetail(orderId:String)
     case createOrder(order: Order?)
+    case checkPaymentOptions(paymentOptions: PaymentOptions?)
     case authoriseOrder(orderId:String)
     case refunds(orderId: String, paymentRefund: PaymentRefund)
     case capturePayment(capturePayment: CapturePaymentRequest)
@@ -30,6 +31,8 @@ extension TamaraApi: TargetType {
             return "/orders/\(orderId)"
         case .createOrder:
             return "/checkout"
+        case .checkPaymentOptions:
+            return "/checkout/payment-options-pre-check"
         case .authoriseOrder(let orderId):
             return "/orders/\(orderId)/authorise"
         case .refunds(let orderId, _):
@@ -45,7 +48,8 @@ extension TamaraApi: TargetType {
     
     var method: Moya.Method {
         switch self {
-            case .createOrder, .authoriseOrder, .refunds, .capturePayment, .cancelOrder: return .post
+            case .createOrder, .authoriseOrder, .refunds, .capturePayment, .cancelOrder,
+                .checkPaymentOptions : return .post
             case .orderDetail: return .get
             case .updateOrderReference: return .put
         }
@@ -69,6 +73,8 @@ extension TamaraApi: TargetType {
             return .requestJSONEncodable(cancelOrder)
         case .updateOrderReference(_, let orderReference):
             return .requestJSONEncodable(orderReference)
+        case .checkPaymentOptions(let paymentOptions):
+            return .requestJSONEncodable(paymentOptions)
         }
     }
     

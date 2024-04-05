@@ -23,7 +23,6 @@ public protocol TamaraCheckoutDelegate {
     func onCancel()
 }
 
-@available(iOS 13.0.0, *)
 public class TamaraSDKCheckout: UIViewController {
     private var webView: WKWebView!
     private var url: String!
@@ -83,7 +82,6 @@ public class TamaraSDKCheckout: UIViewController {
     }
 }
 
-@available(iOS 13.0.0, *)
 extension TamaraSDKCheckout: WKNavigationDelegate {
     // Called when an error occurs during navigation
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -94,8 +92,8 @@ extension TamaraSDKCheckout: WKNavigationDelegate {
         
         self.present(alertVC, animated: true)
     }
-    
-    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, preferences: WKWebpagePreferences, decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {
+
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url = navigationAction.request.url else {
             return
         }
@@ -112,7 +110,7 @@ extension TamaraSDKCheckout: WKNavigationDelegate {
             self.delegate?.onCancel()
         }
 
-        decisionHandler(.allow, preferences)
+        decisionHandler(.allow)
     }
 }
 

@@ -11,7 +11,6 @@ import UIKit
 import SwiftUI
 import TamaraSDK
 
-@available(iOS 13.0, *)
 public struct MyViewControllerRepresentation: UIViewControllerRepresentable, TamaraCheckoutDelegate{
     public func onSuccessfull() {
         print("onSuccessfull")

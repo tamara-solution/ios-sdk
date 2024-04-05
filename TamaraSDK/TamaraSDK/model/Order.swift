@@ -180,9 +180,9 @@ struct Order: Codable {
         }
     }
     
-    mutating func updateRiskAssessment(from jsonString: String) {
+    mutating func updateRiskAssessment(from jsonString: String) -> Bool {
         guard let jsonData = jsonString.data(using: .utf8) else {
-            return
+            return false
         }
 
         do {
@@ -191,8 +191,10 @@ struct Order: Codable {
                     riskAssessment[fieldName] = jsonElement
                 }
             }
+            return true
         } catch {
             print("Error parsing JSON: \(error)")
+            return false
         }
     }
 }
