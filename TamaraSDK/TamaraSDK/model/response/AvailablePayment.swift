@@ -8,7 +8,7 @@
 import Foundation
 public struct AvailablePayment: Codable {
     var payment_type: String? = nil
-    var description: String? = nil
+    var description_en: String? = nil
     var description_ar: String? = nil
     var instalment: Int? = 0
    

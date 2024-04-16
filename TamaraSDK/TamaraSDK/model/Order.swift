@@ -23,7 +23,7 @@ struct Order: Codable {
     var shippingAmount: Amount? = nil
     var taxAmount: Amount? = nil
     var totalAmount: Amount? = nil
-    var platform: String? = nil
+    var platform: String? = "IOS"
     var isMobile: Bool? = nil
     var instalments: Int? = nil
     var orderNumber: String? = nil

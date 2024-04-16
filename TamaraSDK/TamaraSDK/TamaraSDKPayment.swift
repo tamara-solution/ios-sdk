@@ -223,6 +223,18 @@ public extension TamaraSDKPayment {
         } catch {
         }
     }
+    
+    /**
+    * Set Platform
+    * @param platform
+    */
+    func setPlatform(platform: String) {
+        do {
+            try validateStateForAddingData()
+            self.order?.platform = platform
+        } catch {
+        }
+    }
 
     /**
     * Set Locale
