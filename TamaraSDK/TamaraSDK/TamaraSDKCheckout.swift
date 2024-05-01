@@ -23,7 +23,7 @@ public protocol TamaraCheckoutDelegate {
     func onCancel()
 }
 
-public class TamaraSDKCheckout: UIViewController {
+public class TamaraSDKCheckout: UIViewController, WKUIDelegate {
     private var webView: WKWebView!
     private var url: String!
     public var delegate: TamaraCheckoutDelegate!
@@ -52,7 +52,13 @@ public class TamaraSDKCheckout: UIViewController {
     /// Creates the view that the controller manages.
     public override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
+        webConfiguration.preferences.javaScriptEnabled = true
+        webConfiguration.mediaTypesRequiringUserActionForPlayback = []
+        webConfiguration.allowsInlineMediaPlayback = true
+
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.navigationDelegate = self
+        webView.allowsBackForwardNavigationGestures = true
         view = webView
     }
 
@@ -64,6 +70,7 @@ public class TamaraSDKCheckout: UIViewController {
         let myURL = URL(string: authUrl)
         let myRequest = URLRequest(url: myURL!)
         webView.navigationDelegate = self
+        webView.uiDelegate = self
         webView.load(myRequest)
     }
     

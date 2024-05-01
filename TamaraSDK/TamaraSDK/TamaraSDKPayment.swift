@@ -316,6 +316,7 @@ public extension TamaraSDKPayment {
      */
     func setCountry(countryCode: String, currency: String) {
         self.defaultCountryCode = countryCode
+        self.order?.countryCode = self.defaultCountryCode
     }
     
     /**

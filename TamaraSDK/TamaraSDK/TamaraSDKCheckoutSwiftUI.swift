@@ -23,7 +23,14 @@ public class TamaraSDKCheckoutSwiftUIViewModel: ObservableObject {
     public init(url: String? = "", merchantURL: TamaraMerchantURL = TamaraMerchantURL(success: "", failure: "", cancel: "", notification: ""),webView: WKWebView? = WKWebView()) {
         self.url = url ?? ""
         self.merchantURL = merchantURL
-        self.webView = webView ?? WKWebView()
+        // Enable JavaScript
+        let webConfiguration = WKWebViewConfiguration()
+        webConfiguration.preferences.javaScriptEnabled = true
+        webConfiguration.allowsInlineMediaPlayback = true
+        webConfiguration.mediaTypesRequiringUserActionForPlayback = []
+               
+        // Use the configuration to initialize the WKWebView
+        self.webView = WKWebView(frame: .zero, configuration: webConfiguration)
     }
 }
 
