@@ -3,4 +3,9 @@ xcuserdata
 Podfile.lock
 Pods
 *.framework
+
+# SwiftPM
+Package.resolved
+.swiftpm
+
 *.xcworkspace
